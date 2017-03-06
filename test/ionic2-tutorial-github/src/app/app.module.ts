@@ -9,6 +9,7 @@ import {Settings} from "../pages/settings/settings";
 import {Profile} from "../pages/profile/profile";
 import {Create} from "../pages/create/create";
 import {Login} from "../pages/login/login";
+import {Functions} from "../pages/functions/functions";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {Login} from "../pages/login/login";
     Create,
     Profile,
     Settings,
-    PLanning
+    PLanning,
+    Functions
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import {Login} from "../pages/login/login";
     Create,
     Profile,
     Settings,
-    PLanning
+    PLanning,
+    Functions
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
