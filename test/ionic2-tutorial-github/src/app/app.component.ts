@@ -5,6 +5,13 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { HomePage } from '../pages/home/home';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { Create } from '../pages/create/create';
+import { Functions } from '../pages/functions/functions';
+import { Login } from '../pages/login/login';
+import { PLanning } from '../pages/planning/planning';
+import { Profile } from '../pages/profile/profile';
+import {Settings} from "../pages/settings/settings";
+
 
 
 @Component({
@@ -21,10 +28,21 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Page Two', component: Page2 },
+      { title: 'Create', component: Create },
+      { title: 'Login', component: Login },
+      { title: 'Functions', component: Functions },
+      { title: 'PLanning', component: PLanning },
+      { title: 'Profile', component: Profile },
+      { title: 'Settings', component: Settings }
+
+
+
+
+
     ];
     }
-  
+
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
