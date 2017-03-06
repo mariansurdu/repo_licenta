@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1022c1b8-594d-45b5-b771-1dfd7e78349f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../SELECTIE_POZE FOTOGRAF_PARTY.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/.idea/backend licenta.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/bin/www" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/models/planning.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/models/teams.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/models/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/models/userData.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/public/stylesheets/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/routes/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/routes/users.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/views/error.jade" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/views/index.jade" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../backend licenta/views/layout.jade" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bubl.rar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161130_163841.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161130_163859.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161130_163912.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161130_165152.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_131725.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_131731.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_131756.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_131802.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_131811.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132026.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132030.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132038.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132043.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132100.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132103.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132106.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132122.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132125.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132133.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132141.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132144.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132146.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132230.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132237.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132240.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132248.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132411.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132428.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132433.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132440.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132454.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132459.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132507.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_132514.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134238.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134252.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134338.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134422.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134439.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134449.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134652.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134712.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134721.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134730.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134801.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134847.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134922.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134939.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134945.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_134952.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135042.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135057.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135117.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135123.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135143.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135641.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_135707.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140701.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140710.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140719.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140732.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140742.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_140750.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141343.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141353.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141425.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141539.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141554.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141611.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141655.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141659.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141705.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141723.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_141729.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142018.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142019.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142025.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142029.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142124.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142129.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142132.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_142154.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151818.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151824.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151835.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151839.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151852.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_151905.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_163728.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_200251.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161201_200301.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142220.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142224.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142230.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142241.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142249.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142255.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142301.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_142308.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_32.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_33.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_36.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_39.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_143458_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_144044.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_144057.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161202_174642.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161203_114822.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161203_114827.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../pozde/IMG_20161203_114838.jpg" afterPath="" />
+    </list>
+    <ignored path="test.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="test" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/app/app.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="7" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/pages/home/home.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ionic2-tutorial-github/src/pages/home/home.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="393" />
+    <option name="y" value="129" />
+    <option name="width" value="1451" />
+    <option name="height" value="887" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="test" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1022c1b8-594d-45b5-b771-1dfd7e78349f" name="Default" comment="" />
+      <created>1488817405425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1488817405425</updated>
+      <workItem from="1488817406873" duration="2141000" />
+    </task>
+    <task id="LOCAL-00001" summary="mm">
+      <created>1488819313680</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1488819313680</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mm">
+      <created>1488819436349</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1488819436349</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2141000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="393" y="129" width="1451" height="887" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24946082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mm" />
+    <option name="LAST_COMMIT_MESSAGE" value="mm" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="7" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ionic2-tutorial-github/src/pages/home/home.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
