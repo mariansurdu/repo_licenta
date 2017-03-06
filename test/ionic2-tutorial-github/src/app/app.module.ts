@@ -10,6 +10,7 @@ import {Profile} from "../pages/profile/profile";
 import {Create} from "../pages/create/create";
 import {Login} from "../pages/login/login";
 import {Functions} from "../pages/functions/functions";
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {Functions} from "../pages/functions/functions";
     Functions
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

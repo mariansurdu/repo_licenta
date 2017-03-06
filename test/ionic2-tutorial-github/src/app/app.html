@@ -15,5 +15,12 @@
 
 </ion-menu>
 
+<ion-fab bottom right >
+  <button ion-fab>BL</button>
+  <ion-fab-list side="top">
+    <button ion-fab>Connect</button>
+  </ion-fab-list>
+</ion-fab>
+
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
