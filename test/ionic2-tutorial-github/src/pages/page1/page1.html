@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Page One</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <button ion-button (click)="connect()">Connect</button>
+  <button ion-button (click)="writeDataToSerial()">Write</button>
+  <button ion-button (click)="readDataFromSerial()">Read</button>
+  <button ion-button (click)="showListOfDevices()">List</button>
+</ion-content>
