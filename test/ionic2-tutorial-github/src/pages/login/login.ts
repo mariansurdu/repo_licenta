@@ -11,5 +11,9 @@ export class Login {
   constructor(public navCtrl: NavController) {
 
   }
+  
+  login() {
+    
+  }
 
 }

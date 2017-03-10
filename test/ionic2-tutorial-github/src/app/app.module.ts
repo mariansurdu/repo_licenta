@@ -11,6 +11,10 @@ import {Create} from "../pages/create/create";
 import {Login} from "../pages/login/login";
 import {Functions} from "../pages/functions/functions";
 import { ChartsModule } from 'ng2-charts';
+import {PlanningService} from "../pages/planning/planning.service";
+import {SettingsService} from "../pages/settings/settings.service";
+import {CreateService} from "../pages/create/create.service";
+import {LoginService} from "../pages/login/login.service";
 
 @NgModule({
   declarations: [
@@ -42,6 +46,6 @@ import { ChartsModule } from 'ng2-charts';
     PLanning,
     Functions
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService]
 })
 export class AppModule {}
