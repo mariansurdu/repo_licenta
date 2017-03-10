@@ -7,4 +7,4 @@ var teamsSchema=new Schema({
     team:Object,
     lead:String
 })
-mongoose.model( 'DataM',dataMSchema);
+mongoose.model( 'Teams',teamsSchema);

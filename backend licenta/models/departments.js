@@ -5,4 +5,4 @@ var departmentsSchema=new Schema({
     manager:String,
     noOfUsers:Number
 })
-mongoose.model( 'Departments',departmentsMSchema);
+mongoose.model( 'Departments',departmentsSchema);
