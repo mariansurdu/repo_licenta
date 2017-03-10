@@ -12,8 +12,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-app.use(express.static(__dirname + '/db'));
-var modelsPath = path.join(__dirname, 'db');
+app.use(express.static(__dirname + '/models'));
+var modelsPath = path.join(__dirname, 'models');
 fs.readdirSync(modelsPath).forEach(function(file) {
     require(modelsPath + '/' + file);
 });
@@ -51,6 +51,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-mongoose.connect('mongodb://marian:marian@ds161039.mlab.com:61039/licenta');
+mongoose.connect('mongodb://marian:marian@ds127730.mlab.com:27730/licenta',function(err){
+  if(err) {
+    console.log(err)
+  }
+  else {
+    console.log("Succesfully connected!");
+  }
+});
 console.log("aa")
 module.exports = app;

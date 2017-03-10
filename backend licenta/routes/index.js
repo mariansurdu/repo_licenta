@@ -36,25 +36,39 @@ router.get('/', function(req, res, next) {
 
 
 router.post("/create",function(req,res){
+  var user=new User();
   var data=req.body;
   user.name=data.name;
   user.lastname=data.lastname;
   user.email=data.email;
   user.password=encrypt(data.password);
   user.age=data.age;
+  user.personType=data.personType;
 
   user.save(function(err){
     if (err) console.log(err);
     else
-      console.log("User created successfully");
+      res.send(200);
   })
 })
 
+
+
 router.post("/login",function(req,res){
-User.find({email:req.body.email},function(err){
+User.find({email:req.body.email},function(err,data){
+    if (data.length==0) {
+      res.send("Invalid username or password!")
+    }
+  else {
+      if (req.body.password===decrypt(data[0].password)) {
+        res.send(200);
+      }
+      else {
+        res.send("Invalid username or password!");
+      }
+    }
 
 })
-
 })
 
 
