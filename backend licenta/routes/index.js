@@ -61,7 +61,7 @@ User.find({email:req.body.email},function(err,data){
     }
   else {
       if (req.body.password===decrypt(data[0].password)) {
-        res.send(200);
+        res.send(200,{"email":req.body.email});
       }
       else {
         res.send("Invalid username or password!");

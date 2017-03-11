@@ -14,6 +14,7 @@ import {Settings} from "../pages/settings/settings";
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -35,11 +36,6 @@ export class MyApp {
       { title: 'PLanning', component: PLanning },
       { title: 'Profile', component: Profile },
       { title: 'Settings', component: Settings }
-
-
-
-
-
     ];
     }
 

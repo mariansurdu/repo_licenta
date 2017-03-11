@@ -15,7 +15,6 @@ import {PlanningService} from "../pages/planning/planning.service";
 import {SettingsService} from "../pages/settings/settings.service";
 import {CreateService} from "../pages/create/create.service";
 import {LoginService} from "../pages/login/login.service";
-
 @NgModule({
   declarations: [
     MyApp,

@@ -15,7 +15,7 @@ data:any;
       // Okay, so the platform is ready and our plugins ar eavailable.
       // Here you can do any higher level native things you might need.
 
-      alert("Device Ready");
+      //alert("Device Ready");
     });
   }
 
