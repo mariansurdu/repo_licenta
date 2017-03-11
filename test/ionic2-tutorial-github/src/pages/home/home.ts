@@ -7,49 +7,34 @@ import {NavController, Platform} from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  devices:any;
-  data:any;
+  icons: string[];
+  items: Array<{title: string, note: string, icon: string}>;
+
 
   constructor(public navCtrl: NavController,
   platform:Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins ar eavailable.
       // Here you can do any higher level native things you might need.
-
-      alert("Device Ready");
+      // alert("Device Ready");
     });
+    this.ngInit();
   }
+
+
   ngInit() {
-    alert("OnConnect!");
-    //BluetoothSerial.subscribe('/n');
-    BluetoothSerial.connect('98:D3:31:90:52:03').subscribe(res=>{
-      alert(res);
-    });
+    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+      'american-football', 'boat', 'bluetooth', 'build'];
+
+    this.items = [];
+    for (let i = 1; i < 11; i++) {
+      this.items.push({
+        title: 'Item ' + i,
+        note: 'This is item #' + i,
+        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+      });
+    }
   }
 
-  writeDataToSerial() {
-    alert("Write");
-    BluetoothSerial.write("a").then((response)=>{
-      alert(JSON.stringify(response));
-    })
-    BluetoothSerial.write("a").then((response)=>{
-      alert(JSON.stringify(response));
-    })
-  }
-
-  readDataFromSerial() {
-    this.data=BluetoothSerial.read().then((response)=>{
-      alert("DAta");
-      alert(JSON.stringify(response));
-    })
-
-  }
-
-
-  showListOfDevices() {
-   BluetoothSerial.list().then((response)=>{
-     alert("Devices:"+JSON.stringify(response));
-   })
-  }
 
 }

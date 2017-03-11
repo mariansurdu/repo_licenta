@@ -26,7 +26,8 @@ import {LoginService} from "../pages/login/login.service";
     Profile,
     Settings,
     PLanning,
-    Functions
+    Functions,
+    HomePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -43,7 +44,8 @@ import {LoginService} from "../pages/login/login.service";
     Profile,
     Settings,
     PLanning,
-    Functions
+    Functions,
+    HomePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService]
 })

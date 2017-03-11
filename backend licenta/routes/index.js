@@ -55,16 +55,19 @@ router.post("/create",function(req,res){
 
 
 router.post("/login",function(req,res){
+    console.log(req.body);
 User.find({email:req.body.email},function(err,data){
+    console.log(data);
     if (data.length==0) {
-      res.send("Invalid username or password!")
+
+      res.send(401)
     }
   else {
       if (req.body.password===decrypt(data[0].password)) {
         res.send(200,{"email":req.body.email});
       }
       else {
-        res.send("Invalid username or password!");
+        res.send(401);
       }
     }
 

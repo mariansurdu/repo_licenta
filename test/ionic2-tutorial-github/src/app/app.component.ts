@@ -28,6 +28,7 @@ export class MyApp {
   constructor(public platform: Platform) {
     this.initializeApp();
     this.pages = [
+      { title: 'Home Page', component: HomePage },
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
       { title: 'Create', component: Create },
