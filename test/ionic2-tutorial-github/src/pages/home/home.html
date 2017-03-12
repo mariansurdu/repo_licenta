@@ -1,17 +1,37 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Company news</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-    <ion-icon [name]="item.icon" item-left></ion-icon>
-    {{item.title}}
-    <div class="item-note" item-right>
-      {{item.note}}
-    </div>
-  </button>
+  <ion-item>
+    <ion-label stacked>Your post</ion-label>
+    <ion-textarea [(ngModel)]="post"></ion-textarea>
+  </ion-item>
+
+  <button ion-button (click)="posting()">Post</button>
+  <button ion-button (click)="addPhotos()">Add photo</button>
+
+  <ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/gas.jpg">
+      </ion-avatar>
+      <h2>Marty McFly</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
+    <img src="assets/img/gas.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Nine Inch Nails Live
+      </ion-card-title>
+      <p>
+        {{item.note}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

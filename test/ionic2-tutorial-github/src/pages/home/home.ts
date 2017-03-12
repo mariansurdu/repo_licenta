@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BluetoothSerial } from 'ionic-native';
 import {NavController, Platform} from 'ionic-angular';
+import {ItemView} from "../itemView/itemview";
 
 @Component({
   selector: 'page-home',
@@ -9,6 +10,7 @@ import {NavController, Platform} from 'ionic-angular';
 export class HomePage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  post:String;
 
 
   constructor(public navCtrl: NavController,
@@ -36,5 +38,21 @@ export class HomePage {
     }
   }
 
+  posting() {
+    this.items.unshift(
+      {title: 'Item '+this.items.length,
+      note:this.post +"" + this.items.length.toString(),
+        icon:this.icons[Math.floor(Math.random()*this.icons.length)]
+      }
+    );
+    this.post="";
+  }
+
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(ItemView, {
+      item: item
+    });
+  }
 
 }

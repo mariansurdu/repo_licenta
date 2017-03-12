@@ -11,6 +11,7 @@ import { Login } from '../pages/login/login';
 import { PLanning } from '../pages/planning/planning';
 import { Profile } from '../pages/profile/profile';
 import {Settings} from "../pages/settings/settings";
+import {ItemView} from "../pages/itemView/itemview";
 
 
 
@@ -36,8 +37,7 @@ export class MyApp {
       { title: 'Functions', component: Functions },
       { title: 'PLanning', component: PLanning },
       { title: 'Profile', component: Profile },
-      { title: 'Settings', component: Settings }
-    ];
+      { title: 'Settings', component: Settings }];
     }
 
   initializeApp() {

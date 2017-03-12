@@ -15,6 +15,8 @@ import {PlanningService} from "../pages/planning/planning.service";
 import {SettingsService} from "../pages/settings/settings.service";
 import {CreateService} from "../pages/create/create.service";
 import {LoginService} from "../pages/login/login.service";
+import {ItemView} from "../pages/itemView/itemview";
+import {HomeService} from "../pages/home/homeservice";
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +29,8 @@ import {LoginService} from "../pages/login/login.service";
     Settings,
     PLanning,
     Functions,
-    HomePage
+    HomePage,
+    ItemView
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -45,8 +48,9 @@ import {LoginService} from "../pages/login/login.service";
     Settings,
     PLanning,
     Functions,
-    HomePage
+    HomePage,
+    ItemView
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService]
 })
 export class AppModule {}

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Post view</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-card *ngIf="selectedItem">
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/gas.jpg">
+    </ion-avatar>
+    <h2>Marty McFly</h2>
+    <p>November 5, 1955</p>
+  </ion-item>
+  <img src="assets/img/gas.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      Nine Inch Nails Live
+    </ion-card-title>
+    <p>
+      {{selectedItem.note}}
+    </p>
+  </ion-card-content>
+</ion-card>
+</ion-content>
