@@ -39,8 +39,12 @@ name:String;
         });
       }
       else {
-        this.navCtrl.push(Company, {
-        });
+        if (this.worker){
+          this.messageError="You must check your CUI.Get a right CUI from your team leader to join your company.:)"
+        }
+        else {
+          this.navCtrl.push(Company, {});
+        }
       }
 
 

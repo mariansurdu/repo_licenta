@@ -12,8 +12,6 @@ import { PLanning } from '../pages/planning/planning';
 import { Profile } from '../pages/profile/profile';
 import {Settings} from "../pages/settings/settings";
 
-
-
 @Component({
   templateUrl: 'app.html'
 })
