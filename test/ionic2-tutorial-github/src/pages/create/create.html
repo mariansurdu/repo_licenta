@@ -11,34 +11,44 @@
   <ion-list>
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="email" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="name" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Age</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="age" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="username" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
   </ion-list>
+  <p>You want to use Licenta as:</p>
   <ion-item>
-    <ion-label>TeamLeader</ion-label>
-    <ion-checkbox color="blue" checked="true"></ion-checkbox>
+    <ion-label>TeamLeader of a team</ion-label>
+    <ion-checkbox color="blue" [disabled]="worker || individual"  checked="false" [(ngModel)]="teamleader" ></ion-checkbox>
   </ion-item>
   <ion-item>
-    <ion-label>Worker</ion-label>
-    <ion-checkbox color="blue" checked="true"></ion-checkbox>
+    <ion-label>Worker in a company</ion-label>
+    <ion-checkbox color="blue" [disabled]="teamleader || individual"  checked="false" [(ngModel)]="worker"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Individual use</ion-label>
+    <ion-checkbox color="blue"  checked="false" [disabled]="worker || teamleader" [(ngModel)]="individual"></ion-checkbox>
+  </ion-item>
+  <ion-item *ngIf='teamleader || worker'>
+    <ion-label>CUI of the company:</ion-label>
+    <ion-input type="text" [(ngModel)]="cui" required></ion-input>
   </ion-item>
   <div padding>
-    <button ion-button>Create</button>
+    <button ion-button (click)="create()">Create</button>
   </div>
 </ion-content>

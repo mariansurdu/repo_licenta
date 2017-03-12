@@ -28,43 +28,78 @@ function decrypt(text){
 }
 
 var User=mongoose.model("User");
+var Company=mongoose.model("Company");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+function save(model,res) {
+    model.save(function(err){
+        if (err) console.log(err);
+        else
+            res.send(200);
+    })
+}
+
+
+router.post('/createcompany',function (req,res) {
+    var company=new Company;
+    company.name=req.body.name;
+    company.email=req.body.email;
+    company.CUI=req.body.cui;
+    company.teams=[];
+    company.departments=req.body.departments;
+    save(company,res);
+    
+})
 
 router.post("/create",function(req,res){
   var user=new User();
   var data=req.body;
+    var noCompany=false;
   user.name=data.name;
   user.lastname=data.lastname;
   user.email=data.email;
   user.password=encrypt(data.password);
   user.age=data.age;
-  user.personType=data.personType;
-
-  user.save(function(err){
-    if (err) console.log(err);
-    else
-      res.send(200);
-  })
+    if (data.worker || data.teamleader) {
+    Company.find({CUI:data.cui},function(err,data){
+        if (data.length!=0) {
+            if (data.worker) {
+                user.personType=2;
+            }
+            if (data.teamleader) {
+                user.personType=1;
+            }
+            user.save(function(err){
+                if (err) console.log(err);
+                else
+                    res.send(200,{email:user.email,_id:user._id});
+            })
+        }
+        else {
+            noCompany=true;
+            res.send(202);
+        }
+    })}
+    else {
+        user.personType=3;
+        save(user,res);
+    }
 })
-
-
 
 router.post("/login",function(req,res){
     console.log(req.body);
 User.find({email:req.body.email},function(err,data){
     console.log(data);
     if (data.length==0) {
-
-      res.send(401)
+        res.send(401)
     }
   else {
       if (req.body.password===decrypt(data[0].password)) {
-        res.send(200,{"email":req.body.email});
+        res.send(200,{"email":req.body.email,"_id":data[0]._id});
       }
       else {
         res.send(401);

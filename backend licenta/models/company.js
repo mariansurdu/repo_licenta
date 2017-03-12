@@ -3,6 +3,7 @@ var Schema=mongoose.Schema;
 var companySchema=new Schema({
     name:String,
     CUI:String,
+    email:String,
     teams:Object,
     departments:Object
 })
