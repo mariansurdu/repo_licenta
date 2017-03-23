@@ -58,16 +58,18 @@ router.post('/createcompany',function (req,res) {
 
 
 router.post("/data",function(req,res){
-    var data=new Data();
-    data.userId=1;
-    data.gas=req.body.gas;
-    data.airquality=req.body.airquality;
-    data.temperature=req.body.temperature;
-    data.metan=req.body.metan;
-    data.nh3=req.body.nh3;
-    data.co=req.body.co;
-    data.date=new Date();
-    save(data,res);
+    Data.find({userId:req.body.userId},function(err,data1){
+        if (data.length==0) {
+            var data=new Data();
+            data.userId=1;
+            data.dataUser=[{airquality:req.body.airquality,temperature:req.body.temperature,gas:req.body.gas,metan:req.body.metan,nh3:req.body.nh3,co:req.body.co,date:new Date(),co2:req.body.co2}];
+            save(data,res);
+        }
+        else {
+            Data.update({userId:req.body.userId})
+        }
+    })
+
 })
 
 
