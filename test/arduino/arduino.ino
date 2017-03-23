@@ -13,6 +13,10 @@ b (tor turn the LED off)
 
 char junk;
 String inputString="";
+int i=0;
+String x="";
+//for example
+//char json[] = "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
 
 void setup()                    // run once, when the sketch starts
 {
@@ -21,7 +25,7 @@ void setup()                    // run once, when the sketch starts
 }
 
 void loop()
-{
+{  i=i+1;
   if(Serial.available()){
   while(Serial.available())
     {
@@ -29,13 +33,12 @@ void loop()
       inputString += inChar;        //make a string of the characters coming on serial
     }
     //Serial.write("[1,2,3,4]");
-    Serial.println(inputString);
     while (Serial.available() > 0)  
     { junk = Serial.read() ; }      // clear the serial buffer
-    if(inputString == "a"){         //in case of 'a' turn the LED on
-      digitalWrite(13, HIGH);  
-    }else if(inputString == "b"){   //incase of 'b' turn the LED off
-      digitalWrite(13, LOW);
+    if(inputString == "g"){  
+    //  json="{'gas:'" + String(345678,DEC)+"," + "'metan:'" + String(3457878,DEC)+","+"'temperature:'" + String(345678,DEC)+","+"nh3:'" + String(345678,DEC)+","+"'co:'" + String(345678,DEC)+"," + "'air umidity:'" + String(3457878,DEC)+","+"'co2:'" + String(341678,DEC)+"}";
+     char json[]="{\"gas\":1351824120,\"metan\":1351824120,\"temperature\":1351824120,\"nh3\":1351824120,\"co\":1351824120,\"airumidity\":1351824120,\"co2\":1351824120}";
+      Serial.println(json);  
     }
     inputString = "";
   }

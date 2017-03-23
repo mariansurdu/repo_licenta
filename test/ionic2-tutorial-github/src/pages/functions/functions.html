@@ -16,26 +16,24 @@
     <div *ngIf="onConnect"><p>Connecting<ion-spinner></ion-spinner></p></div>
   </div>
  <!-- <button ion-button secondary menuToggle>Toggle Menu</button>-->
-  <!--<button ion-button (click)="connect()">Connect</button>-->
+  <button ion-button (click)="connect()">Connect</button>
   <!--<button ion-button (click)="writeDataToSerial()">Write</button>-->
   <button ion-button (click)="readDataFromSerial()">Scan</button>
   <button ion-button (click)="startMonitorizing()">Realtime monitor</button>
   <!--<button ion-button (click)="showListOfDevices()">List</button>-->
   <button ion-button (click)="stopMonitorizing()">Stop</button>
-  <div class="col-md-6">
-    {{data}}
-
-    <canvas baseChart
-            [data]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [chartType]="lineChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-  </div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
   <button (click)="randomizeType()" style="display: inline-block">Change diagram type</button>
-
-
+  {{data}}
   <ion-list>
     <div class="col-md-6">
     <ion-item>

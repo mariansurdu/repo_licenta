@@ -9,6 +9,13 @@ import {BluetoothSerial} from "ionic-native/dist/es5/index";
 })
 export class Functions {
   public data:any;
+  public gas:any;
+  public metan:any;
+  public temperature:any;
+  public nh3:any;
+  public co:any;
+  public airumidity:any;
+  public co2:any;
   monStart:Boolean;
   devices:any;
   connected:Boolean;
@@ -18,27 +25,42 @@ export class Functions {
 
   constructor(public navCtrl: NavController,platform:Platform) {
     platform.ready().then(() => {
-       /* this.monStart = false;
-        this.showListOfDevices();*/
-      this.devices=[{"name":"Test","id":"123124124124141241241"}];
+      this.monStart = false;
+        this.showListOfDevices();
+      /*this.devices=[{"name":"Test","id":"123124124124141241241"}];*/
     });
   }
 
-
   public lineChartData:Array<any> = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90],
-    [1, 18, 10, 19, 86, 27, 90]
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [28, 48, 40, 19, 86, 27, 200], label: 'Series B'}
   ];
-  public lineChartLabels:Array<any> = ['Gas', 'Air Quality', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels:Array<any> = ['1M', '2M', '3M', '4M',"5M"];
+  public lineChartLegend:Array<any> = ['Gas', 'Metan', 'NH3', 'CO',"CO2"];
   public lineChartType:string = 'line';
-  public pieChartType:string = 'pie';
-  public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  public pieChartData:number[] = [300, 500, 100];
+
+  public barChartOptions:any = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartType:string = 'bar';
+  public barChartLegend:boolean = true;
+
+  public barChartData:any[] = [
+    {data: [65, 59, 80, 81, 34, 55, 40], label: 'Gas'},
+    {data: [10, 48, 40, 19, 86, 27, 90], label: 'Metan'},
+    {data: [12, 48, 40, 19, 12, 27, 90], label: 'NH3'},
+    {data: [60, 48, 40, 19, 22, 27, 90], label: 'CO'},
+    {data: [35, 48, 40, 19, 52, 27, 90], label: 'CO2'}
+  ];
+
+
+
+
 
   public randomizeType():void {
     this.lineChartType = this.lineChartType === 'line' ? 'bar' : 'line';
-    this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
   }
 
   public chartClicked(e:any):void {
@@ -117,6 +139,7 @@ export class Functions {
 
   connectToDevice(id:any):void {
     this.onConnect=true;
+    alert(id);
     BluetoothSerial.connect(id).subscribe((res)=>{
       this.connected=true;
       this.onConnect=false;
