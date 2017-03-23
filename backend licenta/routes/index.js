@@ -29,6 +29,7 @@ function decrypt(text){
 
 var User=mongoose.model("User");
 var Company=mongoose.model("Company");
+var Data=mongoose.model("DataM");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -54,6 +55,22 @@ router.post('/createcompany',function (req,res) {
     save(company,res);
     
 })
+
+
+router.post("/data",function(req,res){
+    var data=new Data();
+    data.userId=1;
+    data.gas=req.body.gas;
+    data.airquality=req.body.airquality;
+    data.temperature=req.body.temperature;
+    data.metan=req.body.metan;
+    data.nh3=req.body.nh3;
+    data.co=req.body.co;
+    data.date=new Date();
+    save(data,res);
+})
+
+
 
 router.post("/create",function(req,res){
   var user=new User();

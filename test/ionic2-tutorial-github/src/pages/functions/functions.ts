@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import {NavController, Platform} from 'ionic-angular';
 import {BluetoothSerial} from "ionic-native/dist/es5/index";
+import { AlertController } from 'ionic-angular';
+import {FunctionsService} from "./functions.service";
 
 @Component({
   selector: 'functions',
@@ -23,22 +25,16 @@ export class Functions {
   public test:any;
 
 
-  constructor(public navCtrl: NavController,platform:Platform) {
+  constructor(public navCtrl: NavController,platform:Platform,public alertCtrl: AlertController,
+  public functionsService:FunctionsService
+  ) {
     platform.ready().then(() => {
       this.monStart = false;
         this.showListOfDevices();
-      /*this.devices=[{"name":"Test","id":"123124124124141241241"}];*/
+         this.metan=0;this.co2=0;this.co=0;this.airumidity=0;this.nh3=0;this.temperature=0;this.gas=0;
     });
   }
-
-  public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 200], label: 'Series B'}
-  ];
-  public lineChartLabels:Array<any> = ['1M', '2M', '3M', '4M',"5M"];
-  public lineChartLegend:Array<any> = ['Gas', 'Metan', 'NH3', 'CO',"CO2"];
   public lineChartType:string = 'line';
-
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -74,16 +70,17 @@ export class Functions {
 
 
   connect() {
-    alert("OnConnect!");
-    //BluetoothSerial.subscribe('/n');
     BluetoothSerial.connect('98:D3:31:90:52:03').subscribe(res=>{
-      alert(res);
+      let alert = this.alertCtrl.create({
+        title: 'Awesome',
+        subTitle: 'You are now connected to HG-05! :)',
+        buttons: ['OK']
+      });
+      alert.present();
     });
   }
 
   writeDataToSerial() {
-    this.test="pula";
-    alert("Write");
     BluetoothSerial.write("a").then((response)=>{
       alert(JSON.stringify(response));
     })
@@ -121,9 +118,18 @@ export class Functions {
     this.test="aaa";
     BluetoothSerial.write("g").then((response)=> {
         setTimeout(() => {
-          alert("writed");
           BluetoothSerial.read().then((response)=> {
-           this.data=response;
+           this.data=JSON.parse(response);
+            this.gas=this.data.gas;
+            this.metan=this.data.metan;
+            this.temperature=this.data.temperature;
+            this.co=this.data.co;
+            this.nh3=this.data.nh3;
+            this.airumidity=this.data.airumidity;
+            this.co2=this.data.co2;
+            this.functionsService.saveData(this.data).subscribe((res)=>{
+            })
+            
           })
         }, 1000)
       })

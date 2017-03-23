@@ -19,6 +19,9 @@ import {ItemView} from "../pages/itemView/itemview";
 import {HomeService} from "../pages/home/homeservice";
 import {Company} from "../pages/companyForm/company";
 import {CompanyService} from "../pages/companyForm/company.service";
+import {PersonalData} from "../pages/personalData/personalData";
+import {PersonalDataService} from "../pages/personalData/personalData.service";
+import {FunctionsService} from "../pages/functions/functions.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import {CompanyService} from "../pages/companyForm/company.service";
     Functions,
     HomePage,
     ItemView,
-    Company
+    Company,
+    PersonalData
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,8 +58,9 @@ import {CompanyService} from "../pages/companyForm/company.service";
     Functions,
     HomePage,
     ItemView,
-    Company
+    Company,
+    PersonalData
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService]
 })
 export class AppModule {}

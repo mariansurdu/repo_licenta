@@ -5,6 +5,10 @@ var dataMSchema=new Schema({
     gas:Object,
     airquality:Object,
     temperature:Object,
+    metan:Object,
+    nh3:Object,
+    co:Object,
+    co2:Object,
     date:Date
 
 })
