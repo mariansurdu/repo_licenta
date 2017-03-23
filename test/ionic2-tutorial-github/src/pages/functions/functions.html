@@ -8,9 +8,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <h3>List of devices.Tap to connect</h3>
+  <div *ngFor="let device of devices" class="row">
+<p (click)="connectToDevice(device.id)">{{device.name}}:{{device.id}}</p>
+    <p *ngIf="connected">Connected!</p>
+    <div *ngIf="onConnect"><p>Connecting<ion-spinner></ion-spinner></p></div>
+  </div>
+ <!-- <button ion-button secondary menuToggle>Toggle Menu</button>-->
+  <!--<button ion-button (click)="connect()">Connect</button>-->
+  <!--<button ion-button (click)="writeDataToSerial()">Write</button>-->
+  <button ion-button (click)="readDataFromSerial()">Scan</button>
+  <button ion-button (click)="startMonitorizing()">Realtime monitor</button>
+  <!--<button ion-button (click)="showListOfDevices()">List</button>-->
+  <button ion-button (click)="stopMonitorizing()">Stop</button>
   <div class="col-md-6">
+    {{data}}
 
     <canvas baseChart
             [data]="lineChartData"
@@ -20,8 +33,55 @@
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
   </div>
+  <button (click)="randomizeType()" style="display: inline-block">Change diagram type</button>
 
-  <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
-    <button (click)="randomizeType()" style="display: inline-block">Toggle</button>
-  </div>
+
+  <ion-list>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>Gas:</ion-label>
+      <ion-input type="number" disabled="true" [(ngModel)]="gas" ></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>Metan:</ion-label>
+      <ion-input type="number" disabled="true" [(ngModel)]="metan"></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>Temperature:</ion-label>
+      <ion-input type="number" disabled="true" [(ngModel)]="temperature"></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>NH3:</ion-label>
+      <ion-input type="number" disabled="true" [(ngModel)]="nh3"></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>CO:</ion-label>
+      <ion-input type="number"  disabled="true" [(ngModel)]="co"></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>Air umidity:</ion-label>
+      <ion-input type="number" disabled="true"  [(ngModel)]="airumidity"></ion-input>
+    </ion-item>
+      </div>
+    <div class="col-md-6">
+    <ion-item>
+      <ion-label>CO2:</ion-label>
+      <ion-input type="number" disabled="true" [(ngModel)]="co2" ></ion-input>
+    </ion-item>
+      </div>
+
+
+
+  </ion-list>
+
 </ion-content>

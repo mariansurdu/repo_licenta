@@ -29,19 +29,25 @@ data:any;
 
   writeDataToSerial() {
     alert("Write");
-    BluetoothSerial.write("a").then((response)=>{
-      alert(JSON.stringify(response));
-    })
-    BluetoothSerial.write("a").then((response)=>{
+    BluetoothSerial.write("g").then((response)=>{
       alert(JSON.stringify(response));
     })
   }
 
   readDataFromSerial() {
-    this.data=BluetoothSerial.read().then((response)=>{
+    BluetoothSerial.write("g").then((response)=>{
+      setTimeout(function(){
+        BluetoothSerial.read().then((response)=>{
+          alert(response);
+          this.data=response;
+        })
+      },1000)
+
+    })
+    /*this.data=BluetoothSerial.read().then((response)=>{
       alert("DAta");
       alert(JSON.stringify(response));
-    })
+    })*/
 
   }
 
