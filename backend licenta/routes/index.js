@@ -58,18 +58,36 @@ router.post('/createcompany',function (req,res) {
 
 
 router.post("/data",function(req,res){
-    Data.find({userId:req.body.userId},function(err,data1){
-        if (data.length==0) {
+    Data.find({userId:1},function(err,data1){
+        var x={airquality:"req.body.airquality",temperature:req.body.temperature,gas:req.body.gas,metan:req.body.metan,nh3:req.body.nh3,co:req.body.co,date:new Date(),co2:req.body.co2};
+
+        console.log(data1.length);
+        if (data1.length==0) {
+            console.log("aici")
             var data=new Data();
             data.userId=1;
-            data.dataUser=[{airquality:req.body.airquality,temperature:req.body.temperature,gas:req.body.gas,metan:req.body.metan,nh3:req.body.nh3,co:req.body.co,date:new Date(),co2:req.body.co2}];
+            data.dataUser=[x];
             save(data,res);
         }
         else {
-            Data.update({userId:req.body.userId})
+            console.log("aicia")
+            Data.update({userId:1},{$addToSet:{dataUser:x}},function(err){
+                if (err) console.log(err);
+                else
+                  console.log("OK Update!");
+            })
         }
     })
 
+})
+
+router.get("/datauser/:id",function(req,res){
+    var userId=req.params.id;
+    console.log(userId);
+    Data.find({userId:userId},function(err,data){
+        if (err) res.send(err);
+        else res.json(data);
+    })
 })
 
 
