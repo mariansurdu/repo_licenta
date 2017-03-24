@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content padding >
+  <ion-item>
+    <ion-label>Select Time</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeStarts"></ion-datetime>
+  </ion-item>
+  <button ion-button>Get Statistics</button>
   <div style="display: block">
     <canvas baseChart
             [datasets]="barChartData"
