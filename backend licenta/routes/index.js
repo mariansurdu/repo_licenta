@@ -142,22 +142,6 @@ router.post("/create",function(req,res){
 })
 
 router.post("/login",function(req,res){
-   /* console.log(req.body);
-User.find({email:req.body.email},function(err,data){
-    console.log(data);
-    if (data.length==0) {
-        res.send(401)
-    }
-  else {
-      if (req.body.password===decrypt(data[0].password)) {
-        res.send(200,{"email":req.body.email,"_id":data[0]._id});
-      }
-      else {
-        res.send(401);
-      }
-    }
-
-})*/
     console.log(req.body);
     var nuser=new User(req.body);
     console.log('XXXXXXXXXXXXXXXXXXX User-ul cu care vrei sa te loghezi'+JSON.stringify(nuser));
@@ -173,21 +157,33 @@ User.find({email:req.body.email},function(err,data){
             }
             else {
                 console.log(req.session);
-
-                if (data[0].password==req.body.password){
-                    res.json({status:200,user:nuser})
+                console.log(decrypt(data[0].password));
+                console.log(req.body.password);
+                if (decrypt(data[0].password)==req.body.password){
+                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID});
+                    req.session.userinfo={"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID}
                 }
                 else {
-                    res.send({status:401,message:"Invalid username or password!"});
+                    res.send(401);
                 }
-
             }
         })
-
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA Ce trimit la client"+JSON.stringify(req.user.user_info));
-        console.log("ID Sesiune"+req.sessionID);
     });
 })
+
+router.get("/profiledata/:id",function(req,res){
+    var id=req.params.id;
+    User.find({_id:id},function(err,data){
+        if (err) res.send(err);
+        else {
+            var dataToSend={name:data[0].name,lastname:data[0].lastname,email:data[0].email,age:data[0].age,worker:data[0].worker,teamleader:data[0].teamleader,cui:data[0].CUI};
+            res.json(dataToSend);
+        }
+    })
+})
+
+
+
 
 
 module.exports = router;

@@ -8,4 +8,23 @@
 </ion-header>
 
 <ion-content padding>
+  <div id="profile-bg"></div>
+  <div id="content">
+      <div id="profile-info" *ngIf="profileData">
+      <img id="profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+      <h3 id="profile-name" >{{profileData.name}} {{profileData.lastname}}</h3>
+          <span id="profile-description">Worker</span>
+    </div>
+    <ion-list>
+<!--      <ion-item ng-repeat="post in posts">
+        <img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+       awdawdawd
+        <div class="post-time">dadawd</div>
+        <div class="post-options">
+          <i class="icon-reply"></i>
+          <i class="icon-shuffle"></i>
+        </div>
+      </ion-item>-->
+    </ion-list>
+  </div>
 </ion-content>

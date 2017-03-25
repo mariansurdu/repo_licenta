@@ -76,10 +76,8 @@ export class PersonalData {
 
   getStatistics(d:any) {
     this.personalDataService.getStatistics(d).subscribe((res)=>{
-
     })
   }
-
 
   public randomizeType():void {
     this.lineChartType = this.lineChartType === 'line' ? 'bar' : 'line';

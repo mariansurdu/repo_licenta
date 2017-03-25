@@ -1,28 +1,28 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
+import {ProfileService} from "./profile.service";
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'profile',
   templateUrl: 'profile.html'
 })
 export class Profile {
-
-  constructor(public navCtrl: NavController) {
+  localData:any;
+  profileData:any;
+  constructor(public navCtrl: NavController,public profileService:ProfileService,private localStorageService: LocalStorageService) {
 
   }
 
-  public options:any = {
-  background: {
-    url: "http://media.caranddriver.com/images/media/51/2017-10best-lead-photo-672628-s-original.jpg",
-  },
-  img: {
-    url: "http://wallpaper-gallery.net/images/cars/cars-13.jpg"
-  },
-  name: {
-    text: "Marian Surdu"
-  }
+ngOnInit() {
+  this.localData=JSON.parse(localStorage.getItem("my-app.data"));
+  this.localData=JSON.parse(this.localData);
+  console.log(this.localData._id);
+
+  this.profileService.find(this.localData._id).subscribe((res)=>{
+      this.profileData=res;
+  })
 }
+
 
 }

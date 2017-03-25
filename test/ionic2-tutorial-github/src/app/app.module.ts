@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { LocalStorageModule } from 'angular-2-local-storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Page1 } from '../pages/page1/page1';
@@ -22,6 +23,7 @@ import {CompanyService} from "../pages/companyForm/company.service";
 import {PersonalData} from "../pages/personalData/personalData";
 import {PersonalDataService} from "../pages/personalData/personalData.service";
 import {FunctionsService} from "../pages/functions/functions.service";
+import {ProfileService} from "../pages/profile/profile.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,11 @@ import {FunctionsService} from "../pages/functions/functions.service";
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    ChartsModule
+    ChartsModule,
+    LocalStorageModule.withConfig({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,6 +67,6 @@ import {FunctionsService} from "../pages/functions/functions.service";
     Company,
     PersonalData
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService]
 })
 export class AppModule {}
