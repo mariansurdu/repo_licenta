@@ -24,6 +24,7 @@ import {PersonalData} from "../pages/personalData/personalData";
 import {PersonalDataService} from "../pages/personalData/personalData.service";
 import {FunctionsService} from "../pages/functions/functions.service";
 import {ProfileService} from "../pages/profile/profile.service";
+import {EventCompService} from "../pages/eventcomp/eventcomp.service";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,6 @@ import {ProfileService} from "../pages/profile/profile.service";
     Company,
     PersonalData
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService]
 })
 export class AppModule {}

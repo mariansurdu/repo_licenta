@@ -1,10 +1,15 @@
-import {Component, ViewChild} from '@angular/core';
+import {
+  Component, ViewChild, forwardRef, ContentChild, QueryList, ContentChildren, Output,
+  EventEmitter
+} from '@angular/core';
 
 import {NavController, Nav} from 'ionic-angular';
 import {LoginService} from "./login.service";
 import {Settings} from "../settings/settings";
 import {HomePage} from "../home/home";
 import { LocalStorageService } from 'angular-2-local-storage';
+import {MyApp} from "../../app/app.component";
+import {EventCompService} from "../eventcomp/eventcomp.service";
 
 
 @Component({
@@ -14,7 +19,9 @@ import { LocalStorageService } from 'angular-2-local-storage';
 export class Login {
   @ViewChild(Nav) nav: Nav;
 
-  constructor(public navCtrl: NavController,public loginService:LoginService,private localStorageService: LocalStorageService) {
+
+
+  constructor(public navCtrl: NavController,public loginService:LoginService,private localStorageService: LocalStorageService,public ev:EventCompService) {
 
   };
   email:String;
@@ -27,6 +34,7 @@ export class Login {
       if(res.status==200) {
         this.localStorageService.set("data",res._body);
         this.navCtrl.push(HomePage);
+        this.ev.sendOk();
       }
     });
   }

@@ -21,6 +21,7 @@ ngOnInit() {
 
   this.profileService.find(this.localData._id).subscribe((res)=>{
       this.profileData=res;
+    console.log(this.profileData);
   })
 }
 

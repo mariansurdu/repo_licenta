@@ -160,7 +160,7 @@ router.post("/login",function(req,res){
                 console.log(decrypt(data[0].password));
                 console.log(req.body.password);
                 if (decrypt(data[0].password)==req.body.password){
-                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID});
+                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID,"name":data[0].name});
                     req.session.userinfo={"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID}
                 }
                 else {
