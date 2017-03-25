@@ -18,7 +18,7 @@ export class PersonalData {
   arrayAirQuality:any=[];
   timeStarts:any=[];
   constructor(public navCtrl: NavController,public personalDataService:PersonalDataService) {
-      this.timeStarts=new Date();
+      this.timeStarts=new Date("MMM-DD-YYYY");
   }
   public lineChartType:string = 'line';
   public barChartOptions:any = {
@@ -73,6 +73,12 @@ export class PersonalData {
 
     });
 }
+
+  getStatistics(d:any) {
+    this.personalDataService.getStatistics(d).subscribe((res)=>{
+
+    })
+  }
 
 
   public randomizeType():void {

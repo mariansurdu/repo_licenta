@@ -30,6 +30,7 @@ function decrypt(text){
 var User=mongoose.model("User");
 var Company=mongoose.model("Company");
 var Data=mongoose.model("DataM");
+var News=mongoose.model("CompanyNews");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,7 +47,7 @@ function save(model,res) {
 
 
 router.post('/createcompany',function (req,res) {
-    var company=new Company;
+    var company=new Company();
     company.name=req.body.name;
     company.email=req.body.email;
     company.CUI=req.body.cui;
@@ -54,6 +55,19 @@ router.post('/createcompany',function (req,res) {
     company.departments=req.body.departments;
     save(company,res);
     
+})
+
+router.post('/createnews',function (req,res) {
+    var news=new News();
+    news.personName=req.body.personName;
+    news.userId=req.body.userId;
+    news.news=req.body.news;
+    news.date=new Date();
+    news.photo=req.body.photo;
+    news.company=req.body.company;
+    news.companyId=req.body.companyId;
+    news.comments=[];
+    save(news,res);
 })
 
 
@@ -128,7 +142,7 @@ router.post("/create",function(req,res){
 })
 
 router.post("/login",function(req,res){
-    console.log(req.body);
+   /* console.log(req.body);
 User.find({email:req.body.email},function(err,data){
     console.log(data);
     if (data.length==0) {
@@ -143,7 +157,36 @@ User.find({email:req.body.email},function(err,data){
       }
     }
 
-})
+})*/
+    console.log(req.body);
+    var nuser=new User(req.body);
+    console.log('XXXXXXXXXXXXXXXXXXX User-ul cu care vrei sa te loghezi'+JSON.stringify(nuser));
+    nuser._id=1235;
+    nuser.username=req.body.email;
+    req.logIn(nuser, function(err) {
+        if (err) {
+            console.log("1"+err);
+            return next(err);}
+        User.find({email:req.body.email},function(err,data){
+            if(data.length==0){
+                res.send("That username is not registered!!!");
+            }
+            else {
+                console.log(req.session);
+
+                if (data[0].password==req.body.password){
+                    res.json({status:200,user:nuser})
+                }
+                else {
+                    res.send({status:401,message:"Invalid username or password!"});
+                }
+
+            }
+        })
+
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA Ce trimit la client"+JSON.stringify(req.user.user_info));
+        console.log("ID Sesiune"+req.sessionID);
+    });
 })
 
 

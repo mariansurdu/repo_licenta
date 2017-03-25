@@ -10,7 +10,7 @@
 <ion-content padding >
   <ion-item>
     <ion-label>Select Time</ion-label>
-    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeStarts"></ion-datetime>
+    <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeStarts"></ion-datetime>
   </ion-item>
   <button ion-button>Get Statistics</button>
   <div style="display: block">
@@ -23,5 +23,7 @@
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
   </div>
+
+  <button ion-button (click)="getAdvice">Get Advice</button>
   {{data}}
 </ion-content>

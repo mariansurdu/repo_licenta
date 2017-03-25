@@ -39,7 +39,7 @@ export class Functions {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012']; //for test
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 
@@ -129,7 +129,7 @@ export class Functions {
             this.co2=this.data.co2;
             this.functionsService.saveData(this.data).subscribe((res)=>{
             })
-            
+
           })
         }, 1000)
       })
