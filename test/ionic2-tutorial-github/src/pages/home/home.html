@@ -19,18 +19,18 @@
   <ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
     <ion-item>
       <ion-avatar item-left>
-        <img src="assets/img/gas.jpg">
+        <img src="{{item.photoUser}}">
       </ion-avatar>
-      <h2>Marty McFly</h2>
-      <p>November 5, 1955</p>
+      <h2>{{item.name}}</h2>
+      <p>{{item.date}}</p>
     </ion-item>
-    <img src="assets/img/gas.jpg"/>
+    <img src="{{item.photo}}"/>
     <ion-card-content>
       <ion-card-title>
-        Nine Inch Nails Live
+        {{item.news}}
       </ion-card-title>
       <p>
-        {{item.note}}
+        {{item.company}}
       </p>
     </ion-card-content>
   </ion-card>

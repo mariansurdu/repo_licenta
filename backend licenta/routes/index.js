@@ -57,7 +57,9 @@ router.post('/createcompany',function (req,res) {
     
 })
 
-router.post('/createnews',function (req,res) {
+
+
+router.post('/posts',function (req,res) {
     var news=new News();
     news.personName=req.body.personName;
     news.userId=req.body.userId;
@@ -103,6 +105,7 @@ router.get("/datauser/:id",function(req,res){
         else res.json(data);
     })
 })
+
 
 
 

@@ -110,8 +110,6 @@ export class MyApp {
     });
     confirm.present();
   }
-
-
   logout() {
     console.log("logout");
     this.localStorageService.remove("data");
