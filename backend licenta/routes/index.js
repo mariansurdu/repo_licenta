@@ -32,6 +32,7 @@ var Company=mongoose.model("Company");
 var Data=mongoose.model("DataM");
 var News=mongoose.model("CompanyNews");
 var Team=mongoose.model("Teams");
+var Planning=mongoose.model("Planning");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -240,9 +241,28 @@ router.post("/newworker/:id",function (req,res) {
 
 
 
+
 //here workers and teamleaders can watch the planning.
 //Planning contains administrative activities
-router.get("/planning")
+router.get("/planning/:teamid",function(req,res){
+    Planning.find({teamId:req.params.teamId},function (err,data){
+        if (err) res.send(err)
+        else
+            res.send(data);
+    })
+})
+
+
+router.post("/saveactiviti/:planningId",function(req,res) {
+    Planning.find({_id:req.params.planningId},function(err,data){
+        if (!err)
+        Planning.update({_id:req.params.planningId},{$addToSet:{activities:req.body.activity}},function(err){
+            if(err) res.send(err);
+            else
+               res.send(200);
+        })
+    })
+})
 
 
 
