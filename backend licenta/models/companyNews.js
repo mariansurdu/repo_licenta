@@ -8,6 +8,7 @@ var companyNewsSchema=new Schema({
     photo:String,
     comments:Array,
     company:String,
-    companyId:String
+    companyId:String,
+    cui:String
 })
 mongoose.model( 'CompanyNews',companyNewsSchema);

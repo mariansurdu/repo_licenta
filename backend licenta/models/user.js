@@ -8,6 +8,7 @@ var usersSchema=new Schema({
     age:Number,
     worker:Boolean,
     teamleader:Boolean,
-    personType:Number
+    personType:Number,
+    companyCui:String
 })
 mongoose.model('User',usersSchema);

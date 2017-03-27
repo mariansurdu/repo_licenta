@@ -95,7 +95,6 @@ router.post("/data",function(req,res){
             save(data,res);
         }
         else {
-            console.log("aicia")
             Data.update({userId:1},{$addToSet:{dataUser:x}},function(err){
                 if (err) console.log(err);
                 else
