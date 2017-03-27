@@ -73,6 +73,15 @@ router.post('/posts',function (req,res) {
 })
 
 
+router.get("/companynews/:cui",function(req,res){
+    News.find({cui:req.params.cui},function(err,data){
+        if (err) res.send(err);
+        else
+            res.send(data);
+    })
+})
+
+
 router.post("/data",function(req,res){
     Data.find({userId:1},function(err,data1){
         var x={airquality:"req.body.airquality",temperature:req.body.temperature,gas:req.body.gas,metan:req.body.metan,nh3:req.body.nh3,co:req.body.co,date:new Date(),co2:req.body.co2};
@@ -108,7 +117,9 @@ router.get("/datauser/:id",function(req,res){
 
 
 
-
+//worker if personType=2
+//teamleader if personType=1
+//individualif personType=3
 router.post("/create",function(req,res){
   var user=new User();
   var data=req.body;
@@ -119,6 +130,7 @@ router.post("/create",function(req,res){
   user.password=encrypt(data.password);
   user.age=data.age;
     if (data.worker || data.teamleader) {
+        user.companyCui=req.body.companyCui;
     Company.find({CUI:data.cui},function(err,data){
         if (data.length!=0) {
             if (data.worker) {
@@ -130,7 +142,7 @@ router.post("/create",function(req,res){
             user.save(function(err){
                 if (err) console.log(err);
                 else
-                    res.send(200,{email:user.email,_id:user._id});
+                    res.send(200,{email:user.email,_id:user._id,personType:user.personType,companyCui:user.companyCui});
             })
         }
         else {
@@ -140,7 +152,11 @@ router.post("/create",function(req,res){
     })}
     else {
         user.personType=3;
-        save(user,res);
+        user.save(function(err){
+            if (err) console.log(err);
+            else
+                res.send(200,{email:user.email,_id:user._id,personType:user.personType});
+        })
     }
 })
 
@@ -163,7 +179,7 @@ router.post("/login",function(req,res){
                 console.log(decrypt(data[0].password));
                 console.log(req.body.password);
                 if (decrypt(data[0].password)==req.body.password){
-                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID,"name":data[0].name});
+                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID,"name":data[0].name,"personType":data[0].personType});
                     req.session.userinfo={"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID}
                 }
                 else {
@@ -184,9 +200,4 @@ router.get("/profiledata/:id",function(req,res){
         }
     })
 })
-
-
-
-
-
 module.exports = router;

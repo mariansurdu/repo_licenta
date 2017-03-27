@@ -7,6 +7,7 @@ var usersSchema=new Schema({
     password:String,
     age:Number,
     worker:Boolean,
-    teamleader:Boolean
+    teamleader:Boolean,
+    personType:Number
 })
 mongoose.model('User',usersSchema);
