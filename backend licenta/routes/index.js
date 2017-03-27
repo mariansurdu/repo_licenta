@@ -31,6 +31,7 @@ var User=mongoose.model("User");
 var Company=mongoose.model("Company");
 var Data=mongoose.model("DataM");
 var News=mongoose.model("CompanyNews");
+var Team=mongoose.model("Teams");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -138,11 +139,18 @@ router.post("/create",function(req,res){
             if (data.teamleader) {
                 user.personType=1;
             }
+            var team=new Team();
             user.save(function(err){
                 if (err) console.log(err);
-                else
-                    res.send(200,{email:user.email,_id:user._id,personType:user.personType,companyCui:user.companyCui});
-            })
+                else {
+                    res.send(200, {
+                        email: user.email,
+                        _id: user._id,
+                        personType: user.personType,
+                        companyCui: user.companyCui
+                    });
+                }
+                })
         }
         else {
             noCompany=true;
@@ -199,4 +207,43 @@ router.get("/profiledata/:id",function(req,res){
         }
     })
 })
+//this is a functionality only for the teamleader
+//he can see his teams and can add users to a team or remove a user
+//he can see the data from members of team and some statistics about their healt
+//and the quality of air that they are breath
+//he can send a message to a specified user to take care about him
+
+
+router.get("/teams/:idlead",function(req,res){
+    var cui=req.params.cui;
+    var idlead=req.params.idlead;
+})
+
+//adding a new team
+router.post("/newteam",function(req,res){
+    var team=new Team();
+    team.teamName=req.body.teamName;
+    team.companyCui=req.body.companyCui;
+    team.team=[];
+    team.leadId=req.body.leadId;
+    save(team,res);
+})
+
+router.post("/newworker/:id",function (req,res) {
+    Team.update({_id:req.params.id},{$addToSet:{team:req.body.idWorker}},function(err){
+        if (err) console.log(err);
+        else
+         res.send("User has been added succesfully to team");
+    })
+})
+
+
+
+
+//here workers and teamleaders can watch the planning.
+//Planning contains administrative activities
+router.get("/planning")
+
+
+
 module.exports = router;

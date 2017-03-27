@@ -3,8 +3,7 @@ var Schema=mongoose.Schema;
 var teamsSchema=new Schema({
     teamName:String,
     companyName:String,
-    Department:String,
-    team:Object,
-    lead:String
+    team:Array,
+    leadId:String
 })
 mongoose.model( 'Teams',teamsSchema);

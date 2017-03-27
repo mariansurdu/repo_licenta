@@ -11,4 +11,4 @@ var companyNewsSchema=new Schema({
     companyId:String,
     cui:String
 })
-mongoose.model( 'CompanyNews',companyNewsSchema);
+mongoose.model('CompanyNews',companyNewsSchema);
