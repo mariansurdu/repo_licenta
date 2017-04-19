@@ -264,6 +264,34 @@ router.post("/saveactiviti/:planningId",function(req,res) {
     })
 })
 
+router.post("/settings/:userId",function(req,res){
+    var userId=req.params.userId;
+    var settings=req.body.dataSet;
+    Settings.find({_id:userId},function(err,data){
+        if (data.length!=0) {
+            Settings.update({_id:userId},{$set:{settings:settings}},function(err){
+                if (err) {
+                    res.send(err)
+                }
+                else {
+                    res.send(200);
+                }
+            })
+        }
+    })
+})
+
+router.get("/get/settings/:userId",function(req,res){
+    var userId=req.body.userId;
+    Settings.find({_id:userId},function(err,data){
+        if (err) res.send(err);
+        else
+        {
+            res.json(data);
+        }
+    })
+})
+
 
 
 module.exports = router;
