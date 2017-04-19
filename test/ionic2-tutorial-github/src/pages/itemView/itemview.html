@@ -10,18 +10,17 @@
 <ion-card *ngIf="selectedItem">
   <ion-item>
     <ion-avatar item-left>
-      <img src="assets/img/gas.jpg">
+      <img src="http://devbasu.com/wp-content/uploads/2015/04/describe-your-ideal-boss.jpg">
     </ion-avatar>
-    <h2>Marty McFly</h2>
-    <p>November 5, 1955</p>
+    <h2>{{selectedItem.personName}}</h2>
+    <p>{{selectedItem.date}}</p>
   </ion-item>
-  <img src="assets/img/gas.jpg"/>
+  <img src="{{selectedItem.photo}}"/>
   <ion-card-content>
     <ion-card-title>
-      Nine Inch Nails Live
+      {{selectedItem.news}}
     </ion-card-title>
     <p>
-      {{selectedItem.note}}
     </p>
   </ion-card-content>
 </ion-card>

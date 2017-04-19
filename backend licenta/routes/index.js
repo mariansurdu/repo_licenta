@@ -68,13 +68,17 @@ router.post('/posts',function (req,res) {
     news.personName=req.body.personName;
     news.cui=req.body.cui;
     news.userId=req.body.userId;
-    news.news=req.body.news;
+    news.news=req.body.post;
     news.date=new Date();
     news.photo=req.body.photo;
     news.company=req.body.company;
     news.companyId=req.body.companyId;
     news.comments=[];
-    save(news,res);
+    news.save(function(err){
+        if (err) console.log(err);
+        else
+            res.json({post:news.news});
+    })
 })
 
 

@@ -11,8 +11,9 @@ import { LocalStorageService } from 'angular-2-local-storage';
 })
 export class HomePage {
   icons: string[];
-  items: Array<{title: string, note: string, icon: string,name:any,date:Date,photo:String,photoUser:String}>;
+  items: Array<{title: string, note: string, icon: string,personName:any,date:Date,photo:String,photoUser:String,news:String}>;
   post:String;
+  aux:String;
   loggedUser:any=this.localStorageService.get("data");
 
 
@@ -48,20 +49,21 @@ export class HomePage {
 
   posting() {
     console.log({personName:JSON.parse(this.loggedUser).name,news:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",userId:JSON.parse(this.loggedUser)._id});
-    this.homeService.post({cui:JSON.parse(this.loggedUser).cui,post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
+    this.homeService.post({personName:JSON.parse(this.loggedUser).name,cui:JSON.parse(this.loggedUser).cui,post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
       userId:JSON.parse(this.loggedUser)._id}).subscribe((res)=>{
-      if (res.status==200) {
+      console.log(JSON.parse(res._body).post);
         this.items.unshift(
           {title: 'Item '+this.items.length,
-              note:this.post +"" + this.items.length.toString(),
+              note:res._body.post +"" + this.items.length.toString(),
             icon:this.icons[Math.floor(Math.random()*this.icons.length)],
-            name:JSON.parse(this.loggedUser).name,
+            personName:JSON.parse(this.loggedUser).name,
             date:new Date(),
             photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
-            photoUser:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png"
+            photoUser:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
+            news:JSON.parse(res._body).post
           }
         );
-      }
+
 
     })
 
