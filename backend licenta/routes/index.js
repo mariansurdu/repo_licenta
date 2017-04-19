@@ -63,7 +63,9 @@ router.post('/createcompany',function (req,res) {
 
 router.post('/posts',function (req,res) {
     var news=new News();
+    console.log(req.body);
     news.personName=req.body.personName;
+    news.cui=req.body.cui;
     news.userId=req.body.userId;
     news.news=req.body.news;
     news.date=new Date();
@@ -177,7 +179,8 @@ router.post("/login",function(req,res){
     req.logIn(nuser, function(err) {
         if (err) {
             console.log("1"+err);
-            return next(err);}
+            return next(err);
+        }
         User.find({email:req.body.email},function(err,data){
             console.log(data);
             if(data.length==0){
@@ -209,12 +212,12 @@ router.get("/profiledata/:id",function(req,res){
         }
     })
 })
+
 //this is a functionality only for the teamleader
 //he can see his teams and can add users to a team or remove a user
-//he can see the data from members of team and some statistics about their healt
+//he can see the data from members of team and some statistics about their health
 //and the quality of air that they are breath
 //he can send a message to a specified user to take care about him
-
 
 router.get("/teams/:idlead",function(req,res){
     var cui=req.params.cui;

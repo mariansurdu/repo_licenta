@@ -40,14 +40,16 @@ export class HomePage {
         photo:"aaa"
       });
     }*/
-    this.homeService.getposts().subscribe((res)=>{
+    this.homeService.getposts("12345").subscribe((res)=>{
+      console.log(res);
       this.items=res;
     })
   }
 
   posting() {
     console.log({personName:JSON.parse(this.loggedUser).name,news:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",userId:JSON.parse(this.loggedUser)._id});
-    this.homeService.post({post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",userId:JSON.parse(this.loggedUser)._id}).subscribe((res)=>{
+    this.homeService.post({cui:'12345',post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
+      userId:JSON.parse(this.loggedUser)._id}).subscribe((res)=>{
       if (res.status==200) {
         this.items.unshift(
           {title: 'Item '+this.items.length,

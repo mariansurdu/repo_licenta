@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class HomeService {
  private newposturl: string =  'http://localhost:3000/posts';
-  private getposturl="http://localhost:3000/postss";
+  private getposturl="http://localhost:3000/companynews/";
   constructor (private http: Http) {}
 
   /*login(email: String,password:String): any {
@@ -16,8 +16,8 @@ export class HomeService {
     return this.http.post(this.resourceUrl,{email:email,password:password},{headers:headers});
   }*/
 
-  getposts():any {
-    return this.http.get(this.getposturl).map((res)=>{
+  getposts(cui:any):any {
+    return this.http.get(this.getposturl+cui).map((res)=>{
       return res.json();
     })
   }
