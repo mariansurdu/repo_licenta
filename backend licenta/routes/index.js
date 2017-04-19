@@ -218,6 +218,12 @@ router.get("/profiledata/:id",function(req,res){
 router.get("/teams/:idlead",function(req,res){
     var cui=req.params.cui;
     var idlead=req.params.idlead;
+    Team.find({cui:cui},{idlead:idlead},function(err,data){
+        if (!err) res.json(data)
+        else
+            res.send(err);
+    })
+
 })
 
 //adding a new team
@@ -291,6 +297,8 @@ router.get("/get/settings/:userId",function(req,res){
         }
     })
 })
+
+
 
 
 
