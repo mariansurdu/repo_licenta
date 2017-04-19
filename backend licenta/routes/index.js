@@ -179,6 +179,7 @@ router.post("/login",function(req,res){
             console.log("1"+err);
             return next(err);}
         User.find({email:req.body.email},function(err,data){
+            console.log(data);
             if(data.length==0){
                 res.send("That username is not registered!!!");
             }
@@ -295,6 +296,16 @@ router.get("/get/settings/:userId",function(req,res){
         {
             res.json(data);
         }
+    })
+})
+//to do
+//define userphotos schema
+router.get("/app/userPhotoUrl/:userId",function(req,res){
+    UserPhotos.find({_id:req.params.userId},function(err,data){
+        if(!err)
+            res.json(data)
+        else
+            res.send(err);
     })
 })
 
