@@ -12,6 +12,13 @@ fs.readdirSync(modelsPath).forEach(function(file) {
 });
 var algorithm = 'aes-256-ctr';
 var  password = 'd6F3Efeq';
+var User=mongoose.model("User");
+var Company=mongoose.model("Company");
+var Data=mongoose.model("DataM");
+var News=mongoose.model("CompanyNews");
+var Team=mongoose.model("Teams");
+var Planning=mongoose.model("Planning");
+
 
 function encrypt(text){
   var cipher = crypto.createCipher(algorithm,password)
@@ -27,12 +34,6 @@ function decrypt(text){
   return dec;
 }
 
-var User=mongoose.model("User");
-var Company=mongoose.model("Company");
-var Data=mongoose.model("DataM");
-var News=mongoose.model("CompanyNews");
-var Team=mongoose.model("Teams");
-var Planning=mongoose.model("Planning");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -124,6 +125,7 @@ router.get("/datauser/:id",function(req,res){
 //teamleader if personType=1
 //individualif personType=3
 router.post("/create",function(req,res){
+    console.log("Vrei sa creezi"+req.body)
   var user=new User();
   var data=req.body;
     var noCompany=false;
@@ -133,7 +135,7 @@ router.post("/create",function(req,res){
   user.password=encrypt(data.password);
   user.age=data.age;
     if (data.worker || data.teamleader) {
-        user.companyCui=req.body.companyCui;
+        user.companyCui=req.body.cui;
     Company.find({CUI:data.cui},function(err,data){
         if (data.length!=0) {
             if (data.worker) {
@@ -191,9 +193,37 @@ router.post("/login",function(req,res){
                 console.log(decrypt(data[0].password));
                 console.log(req.body.password);
                 if (decrypt(data[0].password)==req.body.password){
-                    res.send(200,{"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID,"name":data[0].name,"personType":data[0].personType});
-                    req.session.userinfo={"email":req.body.email,"_id":data[0]._id,"sessionId":req.sessionID}
+                    if (data[0].personType!=3) {
+                        res.send(200, {
+                            "email": req.body.email,
+                            "_id": data[0]._id,
+                            "sessionId": req.sessionID,
+                            "name": data[0].name,
+                            "personType": data[0].personType,
+                            "cui":data[0].companyCui
+                        });
+                        req.session.userinfo = {
+                            "email": req.body.email,
+                            "_id": data[0]._id,
+                            "sessionId": req.sessionID
+                        };
+                    }
+                    else {
+                        res.send(200, {
+                            "email": req.body.email,
+                            "_id": data[0]._id,
+                            "sessionId": req.sessionID,
+                            "name": data[0].name,
+                            "personType": data[0].personType
+                        });
+                        req.session.userinfo = {
+                            "email": req.body.email,
+                            "_id": data[0]._id,
+                            "sessionId": req.sessionID
+                        };
+                    }
                 }
+
                 else {
                     res.send(401);
                 }

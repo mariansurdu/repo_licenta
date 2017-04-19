@@ -40,7 +40,7 @@ export class HomePage {
         photo:"aaa"
       });
     }*/
-    this.homeService.getposts("12345").subscribe((res)=>{
+    this.homeService.getposts(JSON.parse(this.loggedUser).cui).subscribe((res)=>{
       console.log(res);
       this.items=res;
     })
@@ -48,7 +48,7 @@ export class HomePage {
 
   posting() {
     console.log({personName:JSON.parse(this.loggedUser).name,news:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",userId:JSON.parse(this.loggedUser)._id});
-    this.homeService.post({cui:'12345',post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
+    this.homeService.post({cui:JSON.parse(this.loggedUser).cui,post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
       userId:JSON.parse(this.loggedUser)._id}).subscribe((res)=>{
       if (res.status==200) {
         this.items.unshift(
