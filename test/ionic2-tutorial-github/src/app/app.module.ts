@@ -25,6 +25,10 @@ import {PersonalDataService} from "../pages/personalData/personalData.service";
 import {FunctionsService} from "../pages/functions/functions.service";
 import {ProfileService} from "../pages/profile/profile.service";
 import {EventCompService} from "../pages/eventcomp/eventcomp.service";
+import {TeamView} from "../pages/teamView/teamview";
+import {PersonalDetailsView} from "../pages/personDetailsView/personDetailsView";
+import {TeamForm} from "../pages/teamForm/teamForm";
+import {TeamFormService} from "../pages/teamForm/teamForm.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import {EventCompService} from "../pages/eventcomp/eventcomp.service";
     HomePage,
     ItemView,
     Company,
-    PersonalData
+    TeamForm,
+    PersonalData,
+    TeamView,
+    PersonalDetailsView
+
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -66,8 +74,10 @@ import {EventCompService} from "../pages/eventcomp/eventcomp.service";
     HomePage,
     ItemView,
     Company,
-    PersonalData
+    PersonalData,
+    TeamForm,
+    TeamView
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService]
 })
 export class AppModule {}

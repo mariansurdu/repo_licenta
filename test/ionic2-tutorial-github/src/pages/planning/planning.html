@@ -1,13 +1,31 @@
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Planning</ion-title>
+    <ion-title>Plannings</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addTeam()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content padding class="card-background-page">
+  <h2>Your teams :</h2>
+  <ion-card (click)="viewTeamDetails(item)">
+    <img src="../../assets/img/industry-004.jpg"/>
+    <div class="card-title">Ground Team</div>
+    <div class="card-subtitle">41 Members</div>
+  </ion-card>
+
+  <ion-card >
+    <img src="../../assets/img/gas.jpg"/>
+    <div class="card-title">Plastic recycle team </div>
+    <div class="card-subtitle">12 Members</div>
+  </ion-card>
+
+
 </ion-content>

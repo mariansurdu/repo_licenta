@@ -253,10 +253,11 @@ router.get("/profiledata/:id",function(req,res){
 //and the quality of air that they are breath
 //he can send a message to a specified user to take care about him
 
-router.get("/teams/:idlead",function(req,res){
+router.get("/teams/:cui/:idlead",function(req,res){
     var cui=req.params.cui;
     var idlead=req.params.idlead;
-    Team.find({cui:cui},{idlead:idlead},function(err,data){
+    console.log(cui+idlead);
+    Team.find({$and:[{companyCui:cui},{leadId:idlead}]},function(err,data){
         if (!err) res.json(data)
         else
             res.send(err);
@@ -267,8 +268,10 @@ router.get("/teams/:idlead",function(req,res){
 //adding a new team
 router.post("/newteam",function(req,res){
     var team=new Team();
+    console.log(req.body);
     team.teamName=req.body.teamName;
-    team.companyCui=req.body.companyCui;
+    team.companyCui=req.body.cui;
+    team.photoUrl=req.body.pictureUrl;
     team.team=[];
     team.leadId=req.body.leadId;
     save(team,res);

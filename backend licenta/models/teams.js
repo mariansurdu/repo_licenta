@@ -4,6 +4,8 @@ var teamsSchema=new Schema({
     teamName:String,
     companyName:String,
     team:Array,
-    leadId:String
+    leadId:String,
+    photoUrl:String,
+    companyCui:String
 })
 mongoose.model( 'Teams',teamsSchema);
