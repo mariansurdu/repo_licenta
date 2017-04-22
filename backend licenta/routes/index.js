@@ -62,7 +62,7 @@ router.post('/createcompany',function (req,res) {
 
 
 
-router.post('/posts',function (req,res) {
+router.post('/newpost',function (req,res) {
     var news=new News();
     console.log(req.body);
     news.personName=req.body.personName;
@@ -83,11 +83,13 @@ router.post('/posts',function (req,res) {
 
 
 router.get("/companynews/:cui",function(req,res){
+    
     News.find({cui:req.params.cui},function(err,data){
         if (err) res.send(err);
         else
             res.send(data);
     })
+    
 })
 
 

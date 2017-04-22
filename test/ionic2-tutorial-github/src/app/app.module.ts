@@ -25,8 +25,8 @@ import {PersonalDataService} from "../pages/personalData/personalData.service";
 import {FunctionsService} from "../pages/functions/functions.service";
 import {ProfileService} from "../pages/profile/profile.service";
 import {EventCompService} from "../pages/eventcomp/eventcomp.service";
-import {TeamView} from "../pages/teamView/teamview";
-import {PersonalDetailsView} from "../pages/personDetailsView/personDetailsView";
+
+//import {PersonalDetailsView} from "../pages/personDetailsView/personDetailsView";
 import {TeamForm} from "../pages/teamForm/teamForm";
 import {TeamFormService} from "../pages/teamForm/teamForm.service";
 
@@ -46,9 +46,8 @@ import {TeamFormService} from "../pages/teamForm/teamForm.service";
     ItemView,
     Company,
     TeamForm,
-    PersonalData,
-    TeamView,
-    PersonalDetailsView
+    PersonalData
+  //  PersonalDetailsView
 
   ],
   imports: [
@@ -75,8 +74,7 @@ import {TeamFormService} from "../pages/teamForm/teamForm.service";
     ItemView,
     Company,
     PersonalData,
-    TeamForm,
-    TeamView
+    TeamForm
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService]
 })

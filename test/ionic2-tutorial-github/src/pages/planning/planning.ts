@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import {TeamForm} from "../teamForm/teamForm";
+import {TeamView} from "../teamView/teamView";
 
 @Component({
   selector: 'planning',
@@ -17,4 +18,9 @@ export class PLanning {
     this.navCtrl.push(TeamForm, {
     });
   }
+
+  /*viewTeamDetails() {
+    this.navCtrl.push(TeamView, {
+    });
+  }*/
 }
