@@ -282,12 +282,24 @@ router.post("/newteam",function(req,res){
     save(team,res);
 })
 
-router.post("/newworker/:id",function (req,res) {
-    Team.update({_id:req.params.id},{$addToSet:{team:req.body.idWorker}},function(err){
-        if (err) console.log(err);
-        else
-         res.send("User has been added succesfully to team");
+router.post("/newworker",function (req,res) {
+    var data=req.body;
+    console.log(data);
+    User.find({email:data.email},function(err,data1){
+        if (err){
+            res.send(err)
+        }
+        else {
+            console.log(data1)
+            data._id=data1[0]._id;
+            Team.update({_id:data.idTeam},{$addToSet:{team:data}},function(err){
+                if (err) console.log(err);
+                else
+                    res.send("User has been added succesfully to team");
+            })
+        }
     })
+
 })
 
 

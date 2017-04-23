@@ -15,6 +15,7 @@ export class TeamForm {
   photoUrl:any="https://thumbs.dreamstime.com/z/shipping-company-workers-two-recording-vehicles-exporting-31709382.jpg";
   leadId:any;
   data:any;
+
   loggedUser:any=this.localStorageService.get("data");
   constructor(public navCtrl: NavController,private localStorageService:LocalStorageService,public teamFormService:TeamFormService) {
 
@@ -27,5 +28,4 @@ export class TeamForm {
       console.log(res);
     })
   }
-
 }

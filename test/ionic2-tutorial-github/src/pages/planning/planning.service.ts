@@ -2,17 +2,20 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 
-
-
 @Injectable()
 export class PlanningService {
-  private resourceUrl: string =  'app/rest/constructionRequest';
+  private resourceUrl: string =  'http://localhost:3000/teams/';
   constructor (private http: Http) {}
 
-  find(id: number): Observable<any> {
-    return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
+  getTeams1(cui:any,idLead:any):any
+  {
+    console.log(this.resourceUrl+cui+'/'+idLead);
+    return this.http.get(this.resourceUrl+cui+'/'+idLead).map((res)=>{
       return res.json();
-    });
+    })
   }
 
 }
+
+
+
