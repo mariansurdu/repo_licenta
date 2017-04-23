@@ -18,6 +18,7 @@ var Data=mongoose.model("DataM");
 var News=mongoose.model("CompanyNews");
 var Team=mongoose.model("Teams");
 var Planning=mongoose.model("Planning");
+const domain = require('domain');
 
 
 function encrypt(text){
@@ -201,7 +202,7 @@ router.post("/login",function(req,res){
                 if (decrypt(data[0].password)==req.body.password){
                     if (data[0].personType!=3) {
                         res.send(200, {
-                            "email": req.body.email,
+                            "email": req.body.email/**/,
                             "_id": data[0]._id,
                             "sessionId": req.sessionID,
                             "name": data[0].name,
@@ -212,6 +213,7 @@ router.post("/login",function(req,res){
                             "email": req.body.email,
                             "_id": data[0]._id,
                             "sessionId": req.sessionID
+                    
                         };
                     }
                     else {
@@ -260,6 +262,7 @@ router.get("/teams/:cui/:idlead",function(req,res){
     var idlead=req.params.idlead;
     console.log(cui+idlead);
     Team.find({$and:[{companyCui:cui},{leadId:idlead}]},function(err,data){
+        console.log(data)
         if (!err) res.json(data)
         else
             res.send(err);
@@ -272,8 +275,8 @@ router.post("/newteam",function(req,res){
     var team=new Team();
     console.log(req.body);
     team.teamName=req.body.teamName;
-    team.companyCui=req.body.cui;
-    team.photoUrl=req.body.pictureUrl;
+    team.companyCui=req.body.companyCui;
+    team.photoUrl=req.body.photoUrl;
     team.team=[];
     team.leadId=req.body.leadId;
     save(team,res);

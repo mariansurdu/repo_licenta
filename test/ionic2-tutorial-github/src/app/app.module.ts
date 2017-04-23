@@ -29,6 +29,7 @@ import {EventCompService} from "../pages/eventcomp/eventcomp.service";
 //import {PersonalDetailsView} from "../pages/personDetailsView/personDetailsView";
 import {TeamForm} from "../pages/teamForm/teamForm";
 import {TeamFormService} from "../pages/teamForm/teamForm.service";
+import {TeamView} from "../pages/teamView/teamview";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {TeamFormService} from "../pages/teamForm/teamForm.service";
     ItemView,
     Company,
     TeamForm,
-    PersonalData
+    PersonalData,
+    TeamView
   //  PersonalDetailsView
 
   ],
@@ -74,7 +76,8 @@ import {TeamFormService} from "../pages/teamForm/teamForm.service";
     ItemView,
     Company,
     PersonalData,
-    TeamForm
+    TeamForm,
+    TeamView
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService]
 })

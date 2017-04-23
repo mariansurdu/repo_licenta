@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add a new team</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Adding a new team you provide are the teamleader of this team.After you can monitorize your people from team and
+  send them news</p>
+  <ion-list>
+    <ion-item>
+      <ion-label>Your email</ion-label>
+      <ion-input type="text" [(ngModel)]="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Company CUI</ion-label>
+      <ion-input type="text" [(ngModel)]="companyCui" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Team Name</ion-label>
+      <ion-input type="text" [(ngModel)]="teamName" required></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button (click)="createTeam()">Add team</button>
+    <button ion-button  (click)="addPhoto()" color="secondary">Add a photo</button>
+    <p>{{message}}</p>
+  </div>
+</ion-content>

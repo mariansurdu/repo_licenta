@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class HomeService {
- private newposturl: string =  'http://localhost:3000/posts';
+ private newposturl: string =  'http://localhost:3000/newpost';
   private getposturl="http://localhost:3000/companynews/";
   constructor (private http: Http) {}
 
