@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 import {CreateService} from "./create.service";
 import {HomePage} from "../home/home";
 import {Company} from "../companyForm/company";
+import { LocalStorageService } from 'angular-2-local-storage';
+import {EventCompService} from "../eventcomp/eventcomp.service";
 
 @Component({
   selector: 'create',
@@ -22,7 +24,7 @@ name:String;
   data:any;
   messageError:String;
 
-  constructor(public navCtrl: NavController,public createService:CreateService) {
+  constructor(public navCtrl: NavController,public createService:CreateService,public localStorageService:LocalStorageService,public ev:EventCompService) {
       this.teamleader=false;
       this.individual=false;
       this.worker=false;
@@ -35,8 +37,9 @@ name:String;
     this.createService.register(this.data).subscribe((res)=>{
       console.log(res);
       if (res.status==200) {
-        this.navCtrl.push(HomePage, {
-        });
+        this.localStorageService.set("data",res._body);
+        this.navCtrl.push(HomePage);
+        this.ev.sendOk();
       }
       else {
         if (this.worker){

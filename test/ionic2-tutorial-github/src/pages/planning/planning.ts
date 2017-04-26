@@ -14,11 +14,18 @@ export class PLanning {
 
   loggedUser:any=this.localStorageService.get("data");
   teams:any;
+  teamLeader:any;
   constructor(public navCtrl: NavController,public  planningService:PlanningService,private localStorageService:LocalStorageService) {
 
   }
 
   ngOnInit() {
+    if (JSON.parse(this.loggedUser).personType!=1) {
+        this.teamLeader=false;
+    }
+    else {
+      this.teamLeader=true;
+    }
  this.planningService.getTeams1("12345",JSON.parse(this.loggedUser)._id).subscribe((res)=>{
  this.teams=res;
    console.log(this.teams);

@@ -159,7 +159,8 @@ router.post("/create",function(req,res){
                         email: user.email,
                         _id: user._id,
                         personType: user.personType,
-                        companyCui: user.companyCui
+                        cui: user.companyCui,
+                        name:user.name
                     });
                 }
                 })
