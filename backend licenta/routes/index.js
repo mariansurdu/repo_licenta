@@ -356,7 +356,7 @@ router.get("/get/settings/:userId",function(req,res){
         }
     })
 })
-//to do
+//to doooo
 //define userphotos schema
 router.get("/app/userPhotoUrl/:userId",function(req,res){
     UserPhotos.find({_id:req.params.userId},function(err,data){
