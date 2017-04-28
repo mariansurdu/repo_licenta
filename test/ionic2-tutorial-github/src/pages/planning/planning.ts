@@ -24,6 +24,7 @@ export class PLanning {
         this.teamLeader=false;
     }
     else {
+      alert("true")
       this.teamLeader=true;
     }
  this.planningService.getTeams1("12345",JSON.parse(this.loggedUser)._id).subscribe((res)=>{

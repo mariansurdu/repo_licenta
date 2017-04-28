@@ -132,7 +132,7 @@ router.get("/datauser/:id",function(req,res){
 //teamleader if personType=1
 //individualif personType=3
 router.post("/create",function(req,res){
-    console.log("Vrei sa creezi"+req.body)
+    console.log("Vrei sa creezi"+JSON.stringify(req.body))
   var user=new User();
   var data=req.body;
     var noCompany=false;
@@ -145,10 +145,10 @@ router.post("/create",function(req,res){
         user.companyCui=req.body.cui;
     Company.find({CUI:data.cui},function(err,data){
         if (data.length!=0) {
-            if (data.worker) {
+            if (req.body.worker) {
                 user.personType=2;
             }
-            if (data.teamleader) {
+            if (req.body.teamleader) {
                 user.personType=1;
             }
             var team=new Team();

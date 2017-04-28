@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content padding >
-  <ion-item>
+  <ion-item *ngIf="teamleader">
     <ion-label>Select Time</ion-label>
     <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeStarts"></ion-datetime>
   </ion-item>
-  <button ion-button>Get Statistics</button>
-  <div style="display: block">
+  <button ion-button *ngIf="teamleader">Get Statistics</button>
+  <div style="display: block" *ngIf="teamleader">
     <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
@@ -23,4 +23,24 @@
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></canvas>
   </div>
+  <div *ngIf="worker" id="profile-bg"></div>
+  <div *ngIf="worker" id="content">
+    <div id="profile-info" >
+      <img id="profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+      <h3 id="profile-name" >{{selectedItem.name}} </h3>
+      <span id="profile-description">"{{job}}"</span>
+    </div>
+    <ion-list>
+      <!--      <ion-item ng-repeat="post in posts">
+              <img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+             awdawdawd
+              <div class="post-time">dadawd</div>
+              <div class="post-options">
+                <i class="icon-reply"></i>
+                <i class="icon-shuffle"></i>
+              </div>
+            </ion-item>-->
+    </ion-list>
+  </div>
+
 </ion-content>

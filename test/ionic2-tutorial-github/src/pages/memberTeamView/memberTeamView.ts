@@ -10,6 +10,8 @@ import {PersonalDataService} from "../personalData/personalData.service";
 export class MemberTeamView {
   selectedItem:any;
   data:any;
+  worker:any=false;
+  teamleader:any=false;
   labels:any=[];
   arrayGas:any=[];
   arrayMetan:any=[];
@@ -18,6 +20,7 @@ export class MemberTeamView {
   arrayCO2:any=[];
   arrayAirQuality:any=[];
   timeStarts:any=[];
+  localData:any=JSON.parse(localStorage.getItem("my-app.data"));
   public lineChartType:string = 'line';
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
@@ -41,28 +44,34 @@ export class MemberTeamView {
   constructor(public navCtrl: NavController,public navParams:NavParams,public personalDataService:PersonalDataService) {
     this.selectedItem=navParams.get('item');
     this.timeStarts=new Date("MMM-DD-YYYY");
-    console.log(this.selectedItem);
+    console.log(JSON.parse(this.localData).personType);
+    if (JSON.parse(this.localData).personType==1) {
+      this.teamleader=true;
+    }
+    if (JSON.parse(this.localData).personType==2) {
+      this.worker=true;
+    }
   }
 
 
   ngOnInit() {
+    if (this.teamleader) {
     this.personalDataService
       .getData(1)
-      .subscribe((res)=>{
+      .subscribe((res) => {
         console.log(res);
-        this.data=res[0].dataUser[0].airquality;
-        for (var i=0;i<res[0].dataUser.length;i++)
-        {
+        this.data = res[0].dataUser[0].airquality;
+        for (var i = 0; i < res[0].dataUser.length; i++) {
           this.arrayAirQuality.push(res[0].dataUser[i].airquality);
           this.arrayMetan.push(res[0].dataUser[i].metan);
           this.arrayCO.push(res[0].dataUser[i].co);
           this.arrayCO2.push(res[0].dataUser[i].co2);
           this.arrayNH3.push(res[0].dataUser[i].nh3);
           this.arrayGas.push(res[0].dataUser[i].gas);
-          this.labels.push(this.days[new Date(res[0].dataUser[i].date).getDay()-2]);
+          this.labels.push(this.days[new Date(res[0].dataUser[i].date).getDay() - 2]);
 
         }
-        this.barChartData=[
+        this.barChartData = [
           {data: this.arrayGas, label: 'Gas'},
           {data: this.arrayMetan, label: 'Metan'},
           {data: this.arrayNH3, label: 'NH3'},
@@ -71,10 +80,14 @@ export class MemberTeamView {
           {data: this.arrayAirQuality, label: 'Air quality'}
         ];
         console.log(this.barChartData);
-        this.barChartLabels=["2","3"];
+        this.barChartLabels = ["2", "3"];
         console.log(this.barChartLabels);
 
       });
+  }
+  else {
+      console.log("Not a teamleader!");
+    }
 }
 
   public chartClicked(e:any):void {
