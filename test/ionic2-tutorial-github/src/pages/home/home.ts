@@ -47,6 +47,18 @@ export class HomePage {
     })
   }
 
+  dateConverter(date:any) {
+    var days=["Monday","Tueday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    let date1=new Date(date);
+    var month=date1.getUTCMonth()+1;
+    var hours=date1.getHours()+3;
+    var minutes=date1.getMinutes();
+    var today=days[date1.getUTCDay()-1];
+    var x=today+" "+date1.getUTCDate()+"/"+month+"/"+date1.getUTCFullYear()+" "+hours+":"+minutes;
+    return x;
+
+  }
+
   posting() {
     console.log({personName:JSON.parse(this.loggedUser).name,news:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",userId:JSON.parse(this.loggedUser)._id});
     this.homeService.post({personName:JSON.parse(this.loggedUser).name,cui:JSON.parse(this.loggedUser).cui,post:this.post,photo:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",

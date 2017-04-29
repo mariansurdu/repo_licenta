@@ -33,6 +33,7 @@ import {TeamFormService} from "../pages/teamForm/teamForm.service";
 import {TeamView} from "../pages/teamView/teamview";
 import {PersonToTeamForm} from "../pages/personToTeamForm/personToTeamForm";
 import {MemberTeamView} from "../pages/memberTeamView/memberTeamView";
+import {AppService} from "./app.service";
 
 @NgModule({
   declarations: [
@@ -86,6 +87,6 @@ import {MemberTeamView} from "../pages/memberTeamView/memberTeamView";
     PersonToTeamForm,
     MemberTeamView
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService]
 })
 export class AppModule {}

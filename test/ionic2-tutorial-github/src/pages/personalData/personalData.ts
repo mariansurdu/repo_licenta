@@ -48,6 +48,7 @@ export class PersonalData {
     .subscribe((res)=>{
       console.log(res);
       this.data=res[0].dataUser[0].airquality;
+      console.log(res[0].dataUser);
       for (var i=0;i<res[0].dataUser.length;i++)
       {
         this.arrayAirQuality.push(res[0].dataUser[i].airquality);
@@ -56,6 +57,7 @@ export class PersonalData {
         this.arrayCO2.push(res[0].dataUser[i].co2);
         this.arrayNH3.push(res[0].dataUser[i].nh3);
         this.arrayGas.push(res[0].dataUser[i].gas);
+        
         this.labels.push(this.days[new Date(res[0].dataUser[i].date).getDay()-2]);
 
       }

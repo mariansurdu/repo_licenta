@@ -6,8 +6,8 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class HomeService {
- private newposturl: string =  'http://localhost:3000/newpost';
-  private getposturl="http://localhost:3000/companynews/";
+ private newposturl: string =  'https://licenta112.herokuapp.com/newpost';
+  private getposturl="https://licenta112.herokuapp.com/companynews/";
   constructor (private http: Http) {}
 
   /*login(email: String,password:String): any {

@@ -27,10 +27,10 @@ export class Login {
   email:String;
   password:String;
   login() {
-    console.log("1"+this.email);
-    this.loginService.login(this.email,this.password).subscribe((res)=>{
+    alert("1"+this.email);
+    this.loginService.login(this.email,this.password,this.localStorageService.get("tempToken").toString()).subscribe((res)=>{
       console.log(res);
-      console.log(res.status);
+      alert(res.status);
       if(res.status==200) {
         this.localStorageService.set("data",res._body);
         this.navCtrl.push(HomePage);

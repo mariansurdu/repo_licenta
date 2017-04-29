@@ -32,7 +32,7 @@ name:String;
 
   create() {
     this.data={email:this.email,name:this.name,age:this.age,username:this.username,password:this.password,
-    teamleader:this.teamleader,worker:this.worker,individual:this.individual,cui:this.cui};
+    teamleader:this.teamleader,worker:this.worker,individual:this.individual,cui:this.cui,token:this.localStorageService.get("tempToken")};
     console.log(this.data);
     this.createService.register(this.data).subscribe((res)=>{
       console.log(res);
@@ -49,9 +49,7 @@ name:String;
           this.navCtrl.push(Company, {});
         }
       }
-
-
-
+    
     })
   }
 

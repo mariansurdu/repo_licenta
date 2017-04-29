@@ -17,6 +17,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import {EventCompService} from "../pages/eventcomp/eventcomp.service";
 import { AlertController } from 'ionic-angular';
 import {Push,PushObject,PushOptions} from "@ionic-native/push";
+import {AppService} from "./app.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -33,7 +34,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,loggedIn:Boolean}>;
 
-  constructor(public platform: Platform,public push:Push,public localStorageService: LocalStorageService,public ev:EventCompService,public alertCtrl: AlertController) {
+  constructor(public platform: Platform,public push:Push,public localStorageService: LocalStorageService,public ev:EventCompService,public alertCtrl: AlertController,public appService:AppService) {
     this.initializeApp();
     this.ev.getEmittedValue()
       .subscribe((item) => {
@@ -58,6 +59,7 @@ export class MyApp {
 
       });
     this.loggedUser=localStorageService.get("data");
+    alert(this.loggedUser);
     if (this.loggedUser!=null) {
       this.loggedIn=true;
       this.title="Welcome "+JSON.parse(this.loggedUser).name;
@@ -139,7 +141,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   initPushNotification() {
-    alert("init");
+    alert("init"+this.loggedIn);
     if (!this.platform.is('cordova')) {
       console.warn("Push notifications not initialized. Cordova is not available - Run in physical device");
       return;
@@ -158,9 +160,18 @@ export class MyApp {
     const pushObject: PushObject = this.push.init(options);
 
     pushObject.on('registration').subscribe((data: any) => {
-      alert('reg');
+
       console.log("device token ->", data.registrationId);
-      alert(data.registrationId);
+      this.localStorageService.add("tempToken",data.registrationId);
+      alert(data.registrationId+this.loggedIn);
+      if (this.loggedIn) {
+        alert("User-ul este logat si update token");
+        this.appService.updateToken({userId: this.loggedUser._id, token: data.registrationId}).subscribe((res)=> {
+          if (res.status == 200) {
+            alert("Token updated successfully");
+          }
+        })
+      }
       //TODO - send device token to server
     });
 

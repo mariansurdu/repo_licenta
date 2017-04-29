@@ -26,6 +26,7 @@ void setup()                    // run once, when the sketch starts
 
 void loop()
 {  i=i+1;
+
   if(Serial.available()){
   while(Serial.available())
     {
@@ -37,7 +38,8 @@ void loop()
     { junk = Serial.read() ; }      // clear the serial buffer
     if(inputString == "g"){  
     //  json="{'gas:'" + String(345678,DEC)+"," + "'metan:'" + String(3457878,DEC)+","+"'temperature:'" + String(345678,DEC)+","+"nh3:'" + String(345678,DEC)+","+"'co:'" + String(345678,DEC)+"," + "'air umidity:'" + String(3457878,DEC)+","+"'co2:'" + String(341678,DEC)+"}";
-     char json[]="{\"gas\":1351824120,\"metan\":1351824120,\"temperature\":1351824120,\"nh3\":1351824120,\"co\":1351824120,\"airumidity\":1351824120,\"co2\":1351824120}";
+        int valoare=analogRead(0);
+     char json[]="{\"gas\":20,\"metan\":5,\"temperature\":29,\"nh3\":3,\"co\":15,\"airumidity\":50,\"co2\":28}";
       Serial.println(json);  
     }
     inputString = "";

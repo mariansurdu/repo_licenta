@@ -18,6 +18,15 @@ export class Functions {
   public co:any;
   public airumidity:any;
   public co2:any;
+  labels:any=[];
+  arrayGas:any=[];
+  days:any=["Monday","Tueday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  arrayMetan:any=[];
+  arrayNH3:any=[];
+  arrayCO:any=[];
+  arrayCO2:any=[];
+  arrayAirQuality:any=[];
+  arrayTemperature:any=[];
   monStart:Boolean;
   devices:any;
   connected:Boolean;
@@ -39,16 +48,18 @@ export class Functions {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012']; //for test
+  public barChartLabels:string[] = this.labels; //for test
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: [65, 59, 80, 81, 34, 55, 40], label: 'Gas'},
-    {data: [10, 48, 40, 19, 86, 27, 90], label: 'Metan'},
-    {data: [12, 48, 40, 19, 12, 27, 90], label: 'NH3'},
-    {data: [60, 48, 40, 19, 22, 27, 90], label: 'CO'},
-    {data: [35, 48, 40, 19, 52, 27, 90], label: 'CO2'}
+    {data: [0,0,0,0,0,0,0], label: 'Gas'},
+    {data: [0,0,0,0,0,0,0], label: 'Metan'},
+    {data: [0,0,0,0,0,0,0], label: 'NH3'},
+    {data: [0,0,0,0,0,0,0], label: 'CO'},
+    {data: [0,0,0,0,0,0,0], label: 'CO2'},
+    {data: [0,0,0,0,0,0,0], label: 'Temperature'},
+    {data: [0,0,0,0,0,0,0], label: 'Air umidity'}
   ];
 
 
@@ -117,9 +128,12 @@ export class Functions {
   readDataFromSerial() {
     this.test="aaa";
     BluetoothSerial.write("g").then((response)=> {
+      alert('x');
         setTimeout(() => {
           BluetoothSerial.read().then((response)=> {
-           this.data=JSON.parse(response);
+           alert('y'+response)
+            this.data=JSON.parse(response);
+
             this.gas=this.data.gas;
             this.metan=this.data.metan;
             this.temperature=this.data.temperature;
@@ -127,10 +141,36 @@ export class Functions {
             this.nh3=this.data.nh3;
             this.airumidity=this.data.airumidity;
             this.co2=this.data.co2;
-            this.functionsService.saveData(this.data).subscribe((res)=>{
-            })
+            this.gas=this.data.gas;
+            this.metan=this.data.metan;
+            this.temperature=this.data.temperature;
+            this.co=this.data.co;
+            this.nh3=this.data.nh3;
+            this.airumidity=this.data.airumidity;
+            this.co2=this.data.co2;
+            this.arrayAirQuality.push(this.data.airumidity);
+            this.arrayMetan.push(this.data.metan);
+            this.arrayTemperature.push(this.data.temperature);
+            this.arrayCO.push(this.data.co);
+            this.arrayCO2.push(this.data.co2);
+            this.arrayNH3.push(this.data.nh3);
+            this.arrayGas.push(this.data.gas);
 
-          })
+            this.labels.push(this.days[new Date().getUTCDay()-1]);
+            this.barChartData=[
+              {data: this.arrayGas, label: 'Gas'},
+              {data: this.arrayMetan, label: 'Metan'},
+              {data: this.arrayNH3, label: 'NH3'},
+              {data: this.arrayTemperature, label: 'Temperature'},
+              {data: this.arrayCO, label: 'CO'},
+              {data: this.arrayCO2, label: 'CO2'},
+              {data: this.arrayAirQuality, label: 'Air quality'}
+            ];
+            alert(this.gas);
+            this.functionsService.saveData(this.data).subscribe((res)=>{
+              alert(res);
+            })
+             })
         }, 1000)
       })
   }
