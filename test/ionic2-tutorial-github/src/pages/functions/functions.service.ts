@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class FunctionsService {
-  private resourceUrl: string =  'http://localhost:3000/data';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/data';
   constructor (private http: Http) {}
 
   saveData(data:any): any {

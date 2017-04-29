@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class LoginService {
-  private resourceUrl: string =  'http://localhost:3000/login';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/login';
   constructor (private http: Http) {}
 
   login(email: String,password:String): any {

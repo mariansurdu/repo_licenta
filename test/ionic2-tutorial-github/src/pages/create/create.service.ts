@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class CreateService {
-  private resourceUrl: string =  'http://localhost:3000/create';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/create';
   constructor (private http: Http) {}
 
   /*find(id: number): Observable<any> {

@@ -4,8 +4,8 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class TeamFormService {
-  private teamSaveUrl: string =  'http://localhost:3000/newteam';
-  private personAddToTeamUrl:string='http://localhost:3000/newworker'
+  private teamSaveUrl: string =  'https://licenta112.herokuapp.com/newteam';
+  private personAddToTeamUrl:string='https://licenta112.herokuapp.com/newworker'
   constructor (private http: Http) {}
 
   saveTeam(data:any): any {

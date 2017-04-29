@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProfileService {
-  private resourceUrl: string =  'http://localhost:3000/profiledata';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/profiledata';
   constructor (private http: Http) {}
 
   find(id:String): Observable<any> {

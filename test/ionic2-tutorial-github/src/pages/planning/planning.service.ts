@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class PlanningService {
-  private resourceUrl: string =  'http://localhost:3000/teams/';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/teams/';
   constructor (private http: Http) {}
 
   getTeams1(cui:any,idLead:any):any

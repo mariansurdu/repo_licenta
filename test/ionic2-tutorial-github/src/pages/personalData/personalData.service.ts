@@ -7,8 +7,8 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class PersonalDataService {
-  private resourceUrl: string =  'http://localhost:3000/datauser';
-  private resourceUrl1: string =  'http://localhost:3000/dataByDate';
+  private resourceUrl: string =  'https://licenta112.herokuapp.com/datauser';
+  private resourceUrl1: string =  'https://licenta112.herokuapp.com/dataByDate';
   constructor (private http: Http) {}
 
   getData(id:number): Observable<any> {
