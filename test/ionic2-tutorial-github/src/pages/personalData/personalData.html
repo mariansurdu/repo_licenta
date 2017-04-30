@@ -10,9 +10,20 @@
 <ion-content padding >
   <ion-item>
     <ion-label>Select Time</ion-label>
-    <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeStarts"></ion-datetime>
+    <ion-datetime  [(ngModel)]="selectedDate"></ion-datetime>
   </ion-item>
-  <button ion-button>Get Statistics</button>
+  <button ion-button (click)="getStatistics()">Get Statistics </button>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData1"
+            [labels]="barChartLabels1"
+            [options]="barChartOptions1"
+            [legend]="barChartLegend1"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <h1>Your statistics this week</h1>
   <div style="display: block">
     <canvas baseChart
             [datasets]="barChartData"

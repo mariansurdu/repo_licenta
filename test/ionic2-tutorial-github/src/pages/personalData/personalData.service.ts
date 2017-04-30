@@ -18,10 +18,9 @@ export class PersonalDataService {
     });
   }
 
-  getStatistics(d:Date):Observable<any> {
-    return this.http.get(this.resourceUrl1+"/"+d).map((res:Response)=>{
-      return res.json();
-    })
+  getStatistics(d:any,id:any):any {
+    console.log(id);
+    return this.http.post(this.resourceUrl1,{date:d,userId:id});
   }
 
 }
