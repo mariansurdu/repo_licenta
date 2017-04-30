@@ -6,6 +6,7 @@ import {TeamView} from "../teamView/teamview";
 import {PlanningService} from "./planning.service";
 import { LocalStorageService } from 'angular-2-local-storage';
 import {EventCompService} from "../eventcomp/eventcomp.service";
+import {SpinnerDialog} from "@ionic-native/spinner-dialog";
 
 @Component({
   selector: 'planning',
@@ -16,7 +17,7 @@ export class PLanning {
   loggedUser:any=this.localStorageService.get("data");
   teams:any;
   teamLeader:any;
-  constructor(public navCtrl: NavController,public  planningService:PlanningService,private localStorageService:LocalStorageService,public ev:EventCompService) {
+  constructor(public navCtrl: NavController,public  planningService:PlanningService,private localStorageService:LocalStorageService,public ev:EventCompService,private spinnerDialog: SpinnerDialog) {
     this.ev.getEmittedValue()
       .subscribe((item) => {
         if (item.flagEv==="teamAdd")
@@ -34,7 +35,9 @@ export class PLanning {
       alert("true")
       this.teamLeader=true;
     }
+    this.spinnerDialog.show("Loading","Teams");
  this.planningService.getTeams1("12345",JSON.parse(this.loggedUser)._id).subscribe((res)=>{
+   this.spinnerDialog.hide();
  this.teams=res;
    console.log(this.teams);
  })

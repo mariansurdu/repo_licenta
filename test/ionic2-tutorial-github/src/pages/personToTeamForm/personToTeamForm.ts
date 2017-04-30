@@ -31,6 +31,7 @@ export class PersonToTeamForm {
     this.teamFormService.addPersonToTeam(this.data).subscribe((res)=>{
         console.log(res);
       if (res.status==200) {
+        alert("Worker"+this.firstname+"has been added successfully to"+this.teamName);
         this.ev.sendOk1(this.data);
       }
     })

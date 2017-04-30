@@ -34,7 +34,8 @@ export class TeamForm {
     this.teamFormService.saveTeam(this.data).subscribe((res)=>{
       console.log(res);
       if (res.status==200) {
-        console.log("send ev")
+        console.log("send ev");
+        alert("Team "+this.teamName+"has been added successfully to your plan");
         console.log(this.data);
         this.ev.sendOk1(this.data);
       }

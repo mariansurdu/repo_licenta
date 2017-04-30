@@ -37,6 +37,9 @@ export class Login {
         this.navCtrl.push(HomePage);
         this.ev.sendOk1({flagEv:"login",another:true});
       }
+      else {
+        alert("Login unsuccesfull");
+      }
     });
   }
 

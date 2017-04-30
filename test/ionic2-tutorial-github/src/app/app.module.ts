@@ -34,6 +34,8 @@ import {TeamView} from "../pages/teamView/teamview";
 import {PersonToTeamForm} from "../pages/personToTeamForm/personToTeamForm";
 import {MemberTeamView} from "../pages/memberTeamView/memberTeamView";
 import {AppService} from "./app.service";
+import {SpinnerDialog} from "@ionic-native/spinner-dialog";
+import { Flashlight } from '@ionic-native/flashlight';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,6 @@ import {AppService} from "./app.service";
     PersonToTeamForm,
     MemberTeamView
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight]
 })
 export class AppModule {}

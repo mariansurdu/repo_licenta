@@ -4,6 +4,7 @@ import {NavController, Platform} from 'ionic-angular';
 import {BluetoothSerial} from "ionic-native/dist/es5/index";
 import { AlertController } from 'ionic-angular';
 import {FunctionsService} from "./functions.service";
+import {SpinnerDialog} from "@ionic-native/spinner-dialog";
 
 @Component({
   selector: 'functions',
@@ -35,12 +36,13 @@ export class Functions {
 
 
   constructor(public navCtrl: NavController,platform:Platform,public alertCtrl: AlertController,
-  public functionsService:FunctionsService
+  public functionsService:FunctionsService,private spinnerDialog: SpinnerDialog
   ) {
     platform.ready().then(() => {
       this.monStart = false;
         this.showListOfDevices();
          this.metan=0;this.co2=0;this.co=0;this.airumidity=0;this.nh3=0;this.temperature=0;this.gas=0;
+      
     });
   }
   public lineChartType:string = 'line';

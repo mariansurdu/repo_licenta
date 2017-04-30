@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {PersonalDataService} from "./personalData.service";
 import { LocalStorageService } from 'angular-2-local-storage';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
+import { Flashlight } from '@ionic-native/flashlight';
 
 @Component({
   selector: 'personalData',
@@ -28,7 +30,7 @@ export class PersonalData {
   arrayAirQuality1:any=[];
   timeStarts:any=[];
   loggedUser:any=this.localStorageService.get("data");
-  constructor(public navCtrl: NavController,public personalDataService:PersonalDataService,public localStorageService:LocalStorageService) {
+  constructor(public navCtrl: NavController,public personalDataService:PersonalDataService,private flashlight: Flashlight,public localStorageService:LocalStorageService,private spinnerDialog: SpinnerDialog) {
       this.timeStarts=new Date("MMM-DD-YYYY");
   }
   public lineChartType:string = 'line';
@@ -85,11 +87,11 @@ export class PersonalData {
 
   }
   ngOnInit() {
-
+    this.spinnerDialog.show("Loading","Personal data");
   this.personalDataService
     .getData(JSON.parse(this.loggedUser)._id)
     .subscribe((res)=>{
-
+      this.spinnerDialog.hide();
       console.log(res);
       this.data=res[0].dataUser[0].airquality;
       console.log(res[0].dataUser);
@@ -190,6 +192,14 @@ getStatistics() {
 
   public chartHovered(e:any):void {
     console.log(e);
+  }
+
+  getAdvice() {
+    this.flashlight.toggle();
+  }
+
+  off() {
+    this.flashlight.switchOff();
   }
 
 }

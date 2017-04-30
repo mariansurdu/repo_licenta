@@ -4,6 +4,7 @@ import {NavController, Platform} from 'ionic-angular';
 import {ItemView} from "../itemView/itemview";
 import {HomeService} from "./homeservice";
 import { LocalStorageService } from 'angular-2-local-storage';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,7 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController,
-  platform:Platform,public homeService:HomeService,public localStorageService:LocalStorageService) {
+  platform:Platform,public homeService:HomeService,public localStorageService:LocalStorageService,private spinnerDialog: SpinnerDialog) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins ar eavailable.
       // Here you can do any higher level native things you might need.
@@ -41,8 +42,10 @@ export class HomePage {
         photo:"aaa"
       });
     }*/
+    this.spinnerDialog.show("Loading","Company news");
     this.homeService.getposts(JSON.parse(this.loggedUser).cui).subscribe((res)=>{
       console.log(res);
+      this.spinnerDialog.hide();
       this.items=res;
     })
   }

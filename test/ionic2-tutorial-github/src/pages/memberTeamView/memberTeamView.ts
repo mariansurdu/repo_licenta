@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {PersonalDataService} from "../personalData/personalData.service";
 import { LocalStorageService } from 'angular-2-local-storage';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 
 @Component({
   selector: 'memberTeamView',
@@ -71,7 +72,8 @@ export class MemberTeamView {
     {data: [0,0,0,0,0,0,0], label: 'Air quality'},
     {data: [0,0,0,0,0,0,0], label: 'Temperature'}
   ];
-  constructor(public navCtrl: NavController,public navParams:NavParams,public personalDataService:PersonalDataService,public localStorageService:LocalStorageService) {
+  constructor(public navCtrl: NavController,public navParams:NavParams,public personalDataService:PersonalDataService,public localStorageService:LocalStorageService,
+              private spinnerDialog: SpinnerDialog) {
     this.selectedItem=navParams.get('item');
     console.log(this.selectedItem);
     this.timeStarts=new Date("MMM-DD-YYYY");
@@ -89,10 +91,11 @@ export class MemberTeamView {
 
   ngOnInit() {
     if (this.teamleader) {
+      this.spinnerDialog.show("Loading","Member Data");
     this.personalDataService
        .getData(JSON.parse(this.localData)._id)
        .subscribe((res) => {
-
+         this.spinnerDialog.hide();
        if (res.length!=0) {
        this.message="";
        this.data = res[0].dataUser[0].airquality;
@@ -147,8 +150,10 @@ export class MemberTeamView {
   }
 
   getStatistics() {
+    this.spinnerDialog.show("Loading","Statistics");
     this.personalDataService.getStatistics(this.timeStarts,JSON.parse(this.localData)._id).subscribe((res)=> {
       console.log((JSON.parse(res._body)));
+      this.spinnerDialog.hide();
       this.auxData = JSON.parse(res._body);
       if (this.auxData.length == 0) {
         this.labels=[];
