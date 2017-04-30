@@ -39,7 +39,7 @@ name:String;
       if (res.status==200) {
         this.localStorageService.set("data",res._body);
         this.navCtrl.push(HomePage);
-        this.ev.sendOk();
+        this.ev.sendOk1({flagEv:"create",another:true});
       }
       else {
         if (this.worker){

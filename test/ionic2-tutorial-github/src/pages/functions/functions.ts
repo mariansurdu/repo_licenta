@@ -20,7 +20,7 @@ export class Functions {
   public co2:any;
   labels:any=[];
   arrayGas:any=[];
-  days:any=["Monday","Tueday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  days:any=["Sunday","Monday","Tueday","Wednesday","Thursday","Friday","Saturday"];
   arrayMetan:any=[];
   arrayNH3:any=[];
   arrayCO:any=[];
@@ -156,7 +156,7 @@ export class Functions {
             this.arrayNH3.push(this.data.nh3);
             this.arrayGas.push(this.data.gas);
 
-            this.labels.push(this.days[new Date().getUTCDay()-1]);
+            this.labels.push(this.days[new Date().getUTCDay()]);
             this.barChartData=[
               {data: this.arrayGas, label: 'Gas'},
               {data: this.arrayMetan, label: 'Metan'},

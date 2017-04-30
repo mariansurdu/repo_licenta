@@ -18,8 +18,8 @@ export class Profile {
 ngOnInit() {
   this.localData=JSON.parse(localStorage.getItem("my-app.data"));
   this.localData=JSON.parse(this.localData);
-  this.job=this.localData==1?'TeamLeader':'Worker';
-  if (this.job==3) {
+  this.job=this.localData.personType==1?'TeamLeader':'Worker';
+  if (this.job==3) { 
     this.job='Liber profesionist!';
   }
   console.log(this.localData);

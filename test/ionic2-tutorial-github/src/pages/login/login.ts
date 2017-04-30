@@ -28,13 +28,14 @@ export class Login {
   password:String;
   login() {
     alert("1"+this.email);
-    this.loginService.login(this.email,this.password,this.localStorageService.get("tempToken").toString()).subscribe((res)=>{
+    //this.localStorageService.get("tempToken").toString()
+    this.loginService.login(this.email,this.password,null).subscribe((res)=>{
       console.log(res);
       alert(res.status);
       if(res.status==200) {
         this.localStorageService.set("data",res._body);
         this.navCtrl.push(HomePage);
-        this.ev.sendOk();
+        this.ev.sendOk1({flagEv:"login",another:true});
       }
     });
   }

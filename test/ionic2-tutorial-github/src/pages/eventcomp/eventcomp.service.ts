@@ -14,6 +14,10 @@ export class EventCompService {
     console.log('change started');
     this.fire.emit(true);
   }
+  sendOk1(item:any) {
+    console.log('change started1');
+    this.fire.emit(item);
+  }
 
   getEmittedValue() {
     return this.fire;

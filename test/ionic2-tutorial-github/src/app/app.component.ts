@@ -3,6 +3,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Platform, Nav} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+
 import { HomePage } from '../pages/home/home';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -38,25 +39,26 @@ export class MyApp {
     this.initializeApp();
     this.ev.getEmittedValue()
       .subscribe((item) => {
-        console.log(item);
-        this.loggedIn=item;
-        this.loggedUser=localStorageService.get("data");
-        this.title="Welcome "+JSON.parse(this.loggedUser).name;
-        this.pages = [
-          { title: 'Home Page', component: HomePage,loggedIn:this.loggedIn },
-          { title: 'Page One', component: Page1,loggedIn:!this.loggedIn },
-          { title: 'Page Two', component: Page2,loggedIn:!this.loggedIn },
-          { title: 'Create', component: Create,loggedIn:!this.loggedIn },
-          { title: 'Login', component: Login,loggedIn:!this.loggedIn },
-          { title: 'Functions', component: Functions,loggedIn:this.loggedIn },
-          { title: 'PLanning', component: PLanning,loggedIn:this.loggedIn },
-          { title: 'Profile', component: Profile,loggedIn:this.loggedIn },
-          { title: 'Settings', component: Settings,loggedIn:this.loggedIn },
-          { title: 'Personal Data', component: PersonalData,loggedIn:this.loggedIn }
-        ];
-        console.log(this.pages);
-        alert("x")
-
+        if (item.flagEv==="login" || item.flagEv==="create") {
+          console.log(item);
+          this.loggedIn = item.another;
+          this.loggedUser = localStorageService.get("data");
+          this.title = "Welcome " + JSON.parse(this.loggedUser).name;
+          this.pages = [
+            {title: 'Home Page', component: HomePage, loggedIn: this.loggedIn},
+            {title: 'Page One', component: Page1, loggedIn: !this.loggedIn},
+            {title: 'Page Two', component: Page2, loggedIn: !this.loggedIn},
+            {title: 'Create', component: Create, loggedIn: !this.loggedIn},
+            {title: 'Login', component: Login, loggedIn: !this.loggedIn},
+            {title: 'Functions', component: Functions, loggedIn: this.loggedIn},
+            {title: 'PLanning', component: PLanning, loggedIn: this.loggedIn},
+            {title: 'Profile', component: Profile, loggedIn: this.loggedIn},
+            {title: 'Settings', component: Settings, loggedIn: this.loggedIn},
+            {title: 'Personal Data', component: PersonalData, loggedIn: this.loggedIn}
+          ];
+          console.log(this.pages);
+          alert("x")
+        }
       });
     this.loggedUser=localStorageService.get("data");
     alert(this.loggedUser);

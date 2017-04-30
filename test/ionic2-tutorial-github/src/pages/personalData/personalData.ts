@@ -41,7 +41,7 @@ export class PersonalData {
     scaleShowVerticalLines1: false,
     responsive: true
   };
-  public days:any=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'];
+  public days:any=['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 
   public barChartLabels:string[] = this.labels;
@@ -102,7 +102,7 @@ export class PersonalData {
         this.arrayCO2.push(res[0].dataUser[i].co2);
         this.arrayNH3.push(res[0].dataUser[i].nh3);
         this.arrayGas.push(res[0].dataUser[i].gas);
-        this.labels.push(this.days[new Date(res[0].dataUser[i].date).getDay()-2]);
+        this.labels.push(this.days[new Date(res[0].dataUser[i].date).getDay()]);
         }
       this.barChartData=[
         {data: this.arrayGas, label: 'Gas'},

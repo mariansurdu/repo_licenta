@@ -48,12 +48,12 @@ export class HomePage {
   }
 
   dateConverter(date:any) {
-  var days=["Monday","Tueday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  var days=["Sunday","Monday","Tueday","Wednesday","Thursday","Friday","Saturday"];
   let date1=new Date(date);
   var month=date1.getUTCMonth()+1;
-  var hours=date1.getHours()+3;
+  var hours=date1.getHours()+1;
   var minutes=date1.getMinutes();
-  var today=days[date1.getUTCDay()-1];
+  var today=days[date1.getUTCDay()];
   var x=today+" "+date1.getUTCDate()+"/"+month+"/"+date1.getUTCFullYear()+" "+hours+":"+minutes;
   return x;
 
