@@ -14,7 +14,9 @@ b (tor turn the LED off)
 char junk;
 String inputString="";
 int i=0;
+int sum=0;
 String x="";
+int sensorPin = A0;
 //for example
 //char json[] = "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
 
@@ -22,10 +24,20 @@ void setup()                    // run once, when the sketch starts
 {
  Serial.begin(9600);            // set the baud rate to 9600, same should be of your Serial Monitor
  pinMode(13, OUTPUT);
+ pinMode(sensorPin, INPUT);
 }
 
 void loop()
 {  i=i+1;
+sum=0;
+for (int i=0;i<100;i++) {
+  Serial.println(analogRead(sensorPin));
+  sum=sum+analogRead(0);
+  }
+float mediaValoare  =sum/100;
+Serial.print("Media");
+Serial.println(mediaValoare);
+
 
   if(Serial.available()){
   while(Serial.available())

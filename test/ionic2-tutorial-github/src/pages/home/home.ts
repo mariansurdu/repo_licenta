@@ -11,7 +11,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Vibration } from '@ionic-native/vibration';
 import {ImagePicker} from '@ionic-native/image-picker';
 import { PhotoLibrary } from '@ionic-native/photo-library';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 
@@ -33,10 +33,11 @@ export class HomePage {
   loggedUser:any=this.localStorageService.get("data");
 
 
+
   constructor(public navCtrl: NavController,
   platform:Platform,public homeService:HomeService,public localStorageService:LocalStorageService,private spinnerDialog: SpinnerDialog,private sms: SMS,
               private localNotifications: LocalNotifications,private photoViewer: PhotoViewer,private vibration: Vibration,
-  private imagePicker:ImagePicker,private photoLibrary: PhotoLibrary) {
+  private imagePicker:ImagePicker,private photoLibrary: PhotoLibrary,private camera: Camera) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins ar eavailable.
       // Here you can do any higher level native things you might need.
@@ -105,7 +106,7 @@ export class HomePage {
 
   addPhoto() {
     alert("Get p")
-    this.imagePicker.getPictures({
+/*    this.imagePicker.getPictures({
       width: 100,
       height: 100,
       quality: 70}).then((results)=>{
@@ -116,8 +117,26 @@ export class HomePage {
       this.testPhoto=results[0];
       this.imgForServer=this.getBase64Image(document.getElementById("testPhoto"));
 
-    })
-  }
+})*/
+    const options: CameraOptions = {
+      quality: 100,
+      targetWidth:300,
+      targetHeight:300,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType:0,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.imgForServer=base64Image;
+    }, (err) => {
+      // Handle error
+      alert(err);
+    });
+}
 
 
   dateConverter(date:any) {
@@ -143,7 +162,7 @@ export class HomePage {
             icon:this.icons[Math.floor(Math.random()*this.icons.length)],
             personName:JSON.parse(this.loggedUser).name,
             date:new Date(),
-            photo:this.testPhoto,
+            photo:this.imgForServer,
             photoUser:"http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png",
             news:JSON.parse(res._body).post
           }

@@ -42,7 +42,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Vibration } from '@ionic-native/vibration';
 import {ImagePicker} from '@ionic-native/image-picker';
 import { PhotoLibrary } from '@ionic-native/photo-library';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @NgModule({
@@ -98,6 +98,6 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     MemberTeamView
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight,SMS,LocalNotifications,PhotoViewer,Vibration,
-    ImagePicker,PhotoLibrary]
+    ImagePicker,PhotoLibrary,Camera]
 })
 export class AppModule {}
