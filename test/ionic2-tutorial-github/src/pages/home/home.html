@@ -14,7 +14,8 @@
   </ion-item>
 
   <button ion-button (click)="posting()">Post</button>
-  <button ion-button (click)="addPhotos()">Add photo</button>
+  <button ion-button (click)="addPhoto()">Add photo</button>
+  <img id="testPhoto" src="{{testPhoto}}">
 
   <ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
     <ion-item>
@@ -34,5 +35,6 @@
         {{item.company}}
       </p>
     </ion-card-content>
+
   </ion-card>
 </ion-content>

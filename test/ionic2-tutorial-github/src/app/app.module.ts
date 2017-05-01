@@ -36,6 +36,14 @@ import {MemberTeamView} from "../pages/memberTeamView/memberTeamView";
 import {AppService} from "./app.service";
 import {SpinnerDialog} from "@ionic-native/spinner-dialog";
 import { Flashlight } from '@ionic-native/flashlight';
+import { SMS } from '@ionic-native/sms';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { Vibration } from '@ionic-native/vibration';
+import {ImagePicker} from '@ionic-native/image-picker';
+import { PhotoLibrary } from '@ionic-native/photo-library';
+
+
 
 @NgModule({
   declarations: [
@@ -89,6 +97,7 @@ import { Flashlight } from '@ionic-native/flashlight';
     PersonToTeamForm,
     MemberTeamView
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight,SMS,LocalNotifications,PhotoViewer,Vibration,
+    ImagePicker,PhotoLibrary]
 })
 export class AppModule {}
