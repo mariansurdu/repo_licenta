@@ -82,9 +82,9 @@ export class HomePage {
     alert("Get p")
 
     const options: CameraOptions = {
-      quality: 100,
-      targetWidth:500,
-      targetHeight:500,
+      quality: 70,
+      targetWidth:400,
+      targetHeight:400,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType:0,
       encodingType: this.camera.EncodingType.JPEG,
@@ -106,7 +106,7 @@ export class HomePage {
   var days=["Sunday","Monday","Tueday","Wednesday","Thursday","Friday","Saturday"];
   let date1=new Date(date);
   var month=date1.getUTCMonth()+1;
-  var hours=date1.getHours()+1;
+  var hours=date1.getHours();
   var minutes=date1.getMinutes();
   var today=days[date1.getUTCDay()];
   var x=today+" "+date1.getUTCDate()+"/"+month+"/"+date1.getUTCFullYear()+" "+hours+":"+minutes;

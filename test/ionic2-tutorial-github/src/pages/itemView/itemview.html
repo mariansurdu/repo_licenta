@@ -15,7 +15,7 @@
     <h2>{{selectedItem.personName}}</h2>
     <p>{{dateConverter(selectedItem.date)}}</p>
   </ion-item>
-  <img src="{{selectedItem.photo}}"/>
+  <img (click)="imgClick()" src="{{selectedItem.photo}}"/>
   <ion-card-content>
     <ion-card-title>
       {{selectedItem.news}}
