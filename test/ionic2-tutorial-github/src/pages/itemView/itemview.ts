@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import {NavController, NavParams} from 'ionic-angular';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 @Component({
   selector: 'itemview',
@@ -8,7 +9,7 @@ import {NavController, NavParams} from 'ionic-angular';
 })
 export class ItemView {
   selectedItem:any;
-  constructor(public navCtrl: NavController,public navParams:NavParams) {
+  constructor(public navCtrl: NavController,public navParams:NavParams,private photoViewer: PhotoViewer) {
     this.selectedItem=navParams.get('item');
   }
 
@@ -22,6 +23,10 @@ export class ItemView {
     var x=today+" "+date1.getUTCDate()+"/"+month+"/"+date1.getUTCFullYear()+" "+hours+":"+minutes;
     return x;
 
+  }
+
+  imgClick() {
+    this.photoViewer.show(this.selectedItem.photo);
   }
 
 }

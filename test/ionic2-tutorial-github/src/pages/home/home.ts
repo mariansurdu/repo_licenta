@@ -50,16 +50,7 @@ export class HomePage {
   ngInit() {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane', 'american-football', 'boat', 'bluetooth', 'build'];
     this.items = [];
-    /*for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)],
-        name:"aaa",
-        date:new Date(),
-        photo:"aaa"
-      });
-    }*/
+
     this.localNotifications.schedule({
       id: 1,
       text: 'Single ILocalNotification',
@@ -70,23 +61,6 @@ export class HomePage {
    // this.photoViewer.show('http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png');
     this.spinnerDialog.show("Loading","Company news");
     this.vibration.vibrate(2000);
-
-/*    this.imagePicker.getPictures({
-      width: 100,
-      height: 100,
-      quality: 70}).then((results)=>{
-      alert(results.length);
-      for (var i=0;i<results.length;i++) {
-        alert("Image Uri:"+results[i]);
-      }
-      this.testPhoto=results[0];
-      this.imgForServer=this.getBase64Image(document.getElementById("testPhoto"));
-
-    })*/
-
-
-
-
 
     this.homeService.getposts(JSON.parse(this.loggedUser).cui).subscribe((res)=>{
       console.log(res);
@@ -106,22 +80,11 @@ export class HomePage {
 
   addPhoto() {
     alert("Get p")
-/*    this.imagePicker.getPictures({
-      width: 100,
-      height: 100,
-      quality: 70}).then((results)=>{
-      alert(results.length);
-      for (var i=0;i<results.length;i++) {
-        alert("Image Uri:"+results[i]);
-      }
-      this.testPhoto=results[0];
-      this.imgForServer=this.getBase64Image(document.getElementById("testPhoto"));
 
-})*/
     const options: CameraOptions = {
       quality: 100,
-      targetWidth:300,
-      targetHeight:300,
+      targetWidth:500,
+      targetHeight:500,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType:0,
       encodingType: this.camera.EncodingType.JPEG,
