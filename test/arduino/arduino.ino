@@ -10,6 +10,7 @@ Possible string values:
 a (to turn the LED on)
 b (tor turn the LED off)
 */
+#include <ArduinoJson.h>
 
 char junk;
 String inputString="";
@@ -31,12 +32,12 @@ void loop()
 {  i=i+1;
 sum=0;
 for (int i=0;i<100;i++) {
-  Serial.println(analogRead(sensorPin));
+ // Serial.println(analogRead(sensorPin));
   sum=sum+analogRead(0);
   }
 float mediaValoare  =sum/100;
-Serial.print("Media");
-Serial.println(mediaValoare);
+//Serial.print("Media");
+//Serial.println(mediaValoare);
 
 
   if(Serial.available()){
@@ -51,9 +52,21 @@ Serial.println(mediaValoare);
     if(inputString == "g"){  
     //  json="{'gas:'" + String(345678,DEC)+"," + "'metan:'" + String(3457878,DEC)+","+"'temperature:'" + String(345678,DEC)+","+"nh3:'" + String(345678,DEC)+","+"'co:'" + String(345678,DEC)+"," + "'air umidity:'" + String(3457878,DEC)+","+"'co2:'" + String(341678,DEC)+"}";
         int valoare=analogRead(0);
-     char json[]="{\"gas\":20,\"metan\":5,\"temperature\":29,\"nh3\":3,\"co\":15,\"airumidity\":50,\"co2\":28}";
-      Serial.println(json);  
+        StaticJsonBuffer<400> jsonBuffer;
+        JsonObject& root = jsonBuffer.createObject();
+        root["gas"] = 20;
+        root["metan"] = 5;
+        root["temperature"] = "29";
+        root["nh3"] = 3;
+        root["co"] = mediaValoare;
+        root["airumidity"] = 50;
+        root["co2"]=28;
+        root.prettyPrintTo(Serial);
+
+     //char json[]="{\"gas\":20,\"metan\":5,\"temperature\":29,\"nh3\":3,\"co\":30,\"airumidity\":50,\"co2\":28}";
+      //Serial.println(root);  
     }
     inputString = "";
   }
 }
+
