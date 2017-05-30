@@ -43,6 +43,8 @@ import { Vibration } from '@ionic-native/vibration';
 import {ImagePicker} from '@ionic-native/image-picker';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {ActivityFormService} from "../pages/activityForm/activityForm.service";
+import {ActivityForm} from "../pages/activityForm/activityForm";
 
 
 @NgModule({
@@ -64,8 +66,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     PersonalData,
     TeamView,
     PersonToTeamForm,
-    MemberTeamView
-  //  PersonalDetailsView
+    MemberTeamView,
+    ActivityForm
 
   ],
   imports: [
@@ -95,9 +97,10 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     TeamForm,
     TeamView,
     PersonToTeamForm,
-    MemberTeamView
+    MemberTeamView,
+    ActivityForm
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight,SMS,LocalNotifications,PhotoViewer,Vibration,
-    ImagePicker,PhotoLibrary,Camera]
+    ImagePicker,PhotoLibrary,Camera,ActivityFormService]
 })
 export class AppModule {}

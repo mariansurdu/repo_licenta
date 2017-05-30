@@ -27,7 +27,7 @@ export class PersonToTeamForm {
 
   addToTeam() {
     console.log("Xxx");
-    this.data={flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
+    this.data={teamleaderId:this.loggedUser._id,flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
     this.teamFormService.addPersonToTeam(this.data).subscribe((res)=>{
         console.log(res);
       if (res.status==200) {

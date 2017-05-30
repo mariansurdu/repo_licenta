@@ -18,6 +18,7 @@
     <div class="card-subtitle">{{selectedItem.team.length}} Members</div>
   </ion-card>
   <!--*ngFor="let item of teams"-->
+  <button ion-button [outline]="true" [round]="true" (click)="addActivitiesToTeam()">Add activities</button>
   <ion-list>
     <ion-item *ngFor="let it of selectedItem.team" (click)="goToPersonDetails(it)" >
       <ion-avatar item-left >

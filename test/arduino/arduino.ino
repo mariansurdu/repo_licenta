@@ -63,7 +63,7 @@ float mediaValoare  =sum/100;
         root["co2"]=28;
         root.prettyPrintTo(Serial);
 
-     //char json[]="{\"gas\":20,\"metan\":5,\"temperature\":29,\"nh3\":3,\"co\":30,\"airumidity\":50,\"co2\":28}";
+     //char json[]="{\"gas\":20,\"metan\":60,\"temperature\":29,\"nh3\":3,\"co\":30,\"airumidity\":50,\"co2\":28}";
       //Serial.println(root);  
     }
     inputString = "";

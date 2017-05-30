@@ -16,12 +16,12 @@
     <div *ngIf="onConnect"><p>Connecting<ion-spinner></ion-spinner></p></div>
   </div>
  <!-- <button ion-button secondary menuToggle>Toggle Menu</button>-->
-  <button ion-button (click)="connect()">Connect</button>
+  <button ion-button  (click)="connect()">Connect</button>
   <!--<button ion-button (click)="writeDataToSerial()">Write</button>-->
   <button ion-button (click)="readDataFromSerial()">Scan</button>
-  <button ion-button (click)="startMonitorizing()">Realtime monitor</button>
+  <button ion-button (click)="startMonitorizing()">Realtime scan</button>
   <!--<button ion-button (click)="showListOfDevices()">List</button>-->
-  <button ion-button (click)="stopMonitorizing()">Stop</button>
+  <button ion-button [outline]="true" [round]="true" (click)="stopMonitorizing()">Stop</button>
     <div style="display: block">
       <canvas baseChart
               [datasets]="barChartData"
