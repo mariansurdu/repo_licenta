@@ -74,8 +74,8 @@ export class MyApp {
     console.log(this.loggedUser);
     this.pages = [
       { title: 'Home Page', component: HomePage,loggedIn:this.loggedIn },
-      { title: 'Page One', component: Page1,loggedIn:!this.loggedIn },
-      { title: 'Page Two', component: Page2,loggedIn:!this.loggedIn },
+     // { title: 'Page One', component: Page1,loggedIn:!this.loggedIn },
+     // { title: 'Page Two', component: Page2,loggedIn:!this.loggedIn },
       { title: 'Create', component: Create,loggedIn:!this.loggedIn },
       { title: 'Login', component: Login,loggedIn:!this.loggedIn },
       { title: 'Functions', component: Functions,loggedIn:this.loggedIn },

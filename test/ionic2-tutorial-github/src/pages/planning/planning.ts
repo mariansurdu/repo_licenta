@@ -36,7 +36,7 @@ export class PLanning {
       this.teamLeader=true;
     }
     this.spinnerDialog.show("Loading","Teams");
- this.planningService.getTeams1("12345",JSON.parse(this.loggedUser)._id).subscribe((res)=>{
+ this.planningService.getTeams1(JSON.parse(this.loggedUser).cui,JSON.parse(this.loggedUser)._id,JSON.parse(this.loggedUser).personType,JSON.parse(this.loggedUser).email).subscribe((res)=>{
    this.spinnerDialog.hide();
  this.teams=res;
    console.log(this.teams);

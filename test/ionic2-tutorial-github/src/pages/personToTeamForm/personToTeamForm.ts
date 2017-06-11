@@ -17,17 +17,21 @@ export class PersonToTeamForm {
   lastname:any;
   salutation:any;
   data:any;
-  loggedUser:any=this.localStorageService.get("data");
+  loggedUser:any;
   photoUrl:any="http://www.mvc.gov.my/ph_album/mvc_council/no-profile-photo.jpg"
   constructor(public navCtrl: NavController,public navParams:NavParams,public teamFormService:TeamFormService,public localStorageService:LocalStorageService,public ev:EventCompService) {
     this.selectedItem=navParams.get('item');
     this.teamName=this.selectedItem.teamName;
+    this.loggedUser=localStorageService.get("data");
     console.log(this.selectedItem);
+    console.log(this.loggedUser);
+
   }
 
   addToTeam() {
-    console.log("Xxx");
-    this.data={teamleaderId:this.loggedUser._id,flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
+    console.log("Xxx"+this.loggedUser._id);
+    this.data={teamleaderId:JSON.parse(this.loggedUser)._id,flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
+    console.log(this.data);
     this.teamFormService.addPersonToTeam(this.data).subscribe((res)=>{
         console.log(res);
       if (res.status==200) {
