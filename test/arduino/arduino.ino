@@ -1,15 +1,4 @@
-/*
-Arduino Turn LED On/Off using Serial Commands
-Created April 22, 2015
-Hammad Tariq, Incubator (Pakistan)
 
-It's a simple sketch which waits for a character on serial
-and in case of a desirable character, it turns an LED on/off.
-
-Possible string values:
-a (to turn the LED on)
-b (tor turn the LED off)
-*/
 #include <ArduinoJson.h>
 
 char junk;
@@ -19,50 +8,118 @@ int sum0=0;
 int sum1=0;
 int sum2=0;
 int sum3=0;
+int sum4=0;
 String x="";
 int sensorPin1 = A0;
 int sensorPin2 = A1;
 int sensorPin3 = A2;
 int sensorPin4 = A3;
-//for example
-//char json[] = "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
+int sensorPin5=A4;
+int temperatureAux=0;
+int temperaturaFinala=0;
 
-void setup()                    // run once, when the sketch starts
+//voltages
+float voltage0=0;
+float voltage1=0;
+float voltage2=0;
+float voltage3=0;
+float voltage4=0;
+
+
+void setup()                  
 {
- Serial.begin(9600);            // set the baud rate to 9600, same should be of your Serial Monitor
+ Serial.begin(9600);      
  pinMode(13, OUTPUT);
  pinMode(sensorPin1, INPUT);
  pinMode(sensorPin2, INPUT);
  pinMode(sensorPin3, INPUT);
  pinMode(sensorPin4, INPUT);
+ pinMode(sensorPin5,INPUT);
+}
+
+double CalcultateTemperature(int RawADC) {  //Function to perform the fancy math of the Steinhart-Hart equation
+ double Temp;
+ Temp = log(((10240000/RawADC) - 10000));
+ Temp = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * Temp * Temp ))* Temp );
+ Temp = Temp - 273.15;              // Convert Kelvin to Celsius
+ Temp = (Temp * 9.0)/ 5.0 + 32.0; // Celsius to Fahrenheit - comment out this line if you need Celsius
+ return Temp;
 }
 
 void loop()
-{  i=i+1;
+{  
 sum0=0;
 sum1=0;
 sum2=0;
 sum3=0;
+sum4=0;
+
+//Calibrate temperature sensor!
+if (temperatureAux==0){
+ 
+  temperatureAux=(analogRead((sensorPin5))/10)-10;
+  }
+ 
+if (((analogRead((sensorPin5))/10)-10)>temperatureAux){
+  
+  Serial.println((analogRead((sensorPin5))/10)-10+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10));
+  temperaturaFinala=(analogRead((sensorPin5))/10)-10+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10);
+ 
+  temperatureAux=((analogRead((sensorPin5))/10)-10)+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10);
+  }
+  else {
+   temperaturaFinala=(analogRead((sensorPin5))/10)-10;
+    }
+
+    
+    delay(5000);
+
+    
+
 for (int i=0;i<100;i++) {
- // Serial.println(analogRead(sensorPin1));
   sum0=sum0+analogRead(0);
    sum1=sum1+analogRead(1);
     sum2=sum2+analogRead(2);
-     sum3=sum3+analogRead(3);
+     sum3=sum3+analogRead(sensorPin4);
+     
   }
-float mediaValoare0  =sum0/100;
-float mediaValoare1  =sum1/100;
-float mediaValoare2  =sum2/100;
-float mediaValoare3  =sum3/100;
-//Serial.print("Media1");
-//Serial.println(mediaValoare0);
-//Serial.print("Media2");
-///Serial.println(mediaValoare1);
-//Serial.print("Media3");
-//Serial.println(mediaValoare2);
-//Serial.print("Media4");
-//Serial.println(mediaValoare3);
-//delay(6000);
+
+
+  //sensors calibration good!!!!!!!!!!!!!!!!
+  
+  voltage0=(analogRead(sensorPin1)*3.3)/4095;
+float mediaValoare0  =voltage0;
+Serial.println("ppm co");
+Serial.println(voltage0);
+Serial.println(3.027*exp(1.0698*voltage0));
+
+voltage1=(analogRead(sensorPin2)*3.3)/4095;
+float mediaValoare1  =voltage1;
+Serial.println("ppm methan");
+Serial.println(voltage1);
+Serial.println(10.938*exp(1.7742*voltage1));
+
+voltage2=(analogRead(sensorPin3)*3.3)/4095;
+float mediaValoare2  =voltage2;
+Serial.println("ppm gas");
+Serial.println(voltage2);
+Serial.println(26.572*exp(1.2894*voltage2));
+
+voltage3=analogRead(sensorPin4);
+float mediaValoare3  =voltage3;
+Serial.println("Air quality:");
+Serial.println(voltage3);
+
+voltage4=analogRead(sensorPin5);
+float mediaValoare4=CalcultateTemperature(voltage4);
+Serial.println("temperature:");
+Serial.println(mediaValoare4);
+
+
+
+
+//**************************************************
+
 
 
   if(Serial.available()){
@@ -81,7 +138,7 @@ float mediaValoare3  =sum3/100;
         JsonObject& root = jsonBuffer.createObject();
         root["gas"] = mediaValoare2;
         root["metan"] = mediaValoare1;
-        root["temperature"] = 29;
+        root["temperature"] = temperaturaFinala;
         root["nh3"] = mediaValoare3;
         root["co"] = mediaValoare0;
         root["airumidity"] = mediaValoare3;
@@ -94,4 +151,5 @@ float mediaValoare3  =sum3/100;
     inputString = "";
   }
 }
+
 
