@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add a company</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Seems this company doesn't exist.You can add your own company or check the introduced data.</p>
+  <ion-list>
+    <ion-item>
+      <ion-label>Your email</ion-label>
+      <ion-input type="text" [(ngModel)]="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" required></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-label>CUI of the company:</ion-label>
+    <ion-input type="text" [(ngModel)]="cui" required></ion-input>
+  </ion-item>
+    </ion-list>
+  <div padding>
+    <button ion-button (click)="createCompany()">Add company</button>
+    <p>{{message}}</p>
+  </div>
+</ion-content>

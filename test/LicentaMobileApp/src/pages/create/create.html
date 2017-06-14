@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-input type="number" [(ngModel)]="age" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone</ion-label>
+      <ion-input type="number" [(ngModel)]="phone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="username" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" required></ion-input>
+    </ion-item>
+  </ion-list>
+  <p>You want to use Licenta as:</p>
+  <ion-item>
+    <ion-label>TeamLeader of a team</ion-label>
+    <ion-checkbox color="blue" [disabled]="worker || individual"  checked="false" [(ngModel)]="teamleader" ></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Worker in a company</ion-label>
+    <ion-checkbox color="blue" [disabled]="teamleader || individual"  checked="false" [(ngModel)]="worker"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Individual use</ion-label>
+    <ion-checkbox color="blue"  checked="false" [disabled]="worker || teamleader" [(ngModel)]="individual"></ion-checkbox>
+  </ion-item>
+  <ion-item *ngIf='teamleader || worker'>
+    <ion-label>CUI of the company:</ion-label>
+    <ion-input type="text" [(ngModel)]="cui" required></ion-input>
+  </ion-item>
+  <div padding>
+    <button ion-button (click)="create()">Create</button>
+    {{messageError}}
+  </div>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Plannings</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="teamLeader" (click)="addTeam()" >
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="card-background-page">
+  <h2>Your teams :</h2>
+  <ion-card *ngFor="let item of teams" (click)="viewTeamDetails(item)">
+    <img src="{{item.photoUrl}}"/>
+    <div class="card-title">{{item.teamName}} </div>
+    <div class="card-subtitle">{{item.team.length}} Members</div>
+  </ion-card>
+</ion-content>

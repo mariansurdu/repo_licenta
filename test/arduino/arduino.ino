@@ -37,83 +37,50 @@ void setup()
  pinMode(sensorPin5,INPUT);
 }
 
-double CalcultateTemperature(int RawADC) {  //Function to perform the fancy math of the Steinhart-Hart equation
- double Temp;
- Temp = log(((10240000/RawADC) - 10000));
- Temp = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * Temp * Temp ))* Temp );
- Temp = Temp - 273.15;              // Convert Kelvin to Celsius
- Temp = (Temp * 9.0)/ 5.0 + 32.0; // Celsius to Fahrenheit - comment out this line if you need Celsius
- return Temp;
+float readTempInCelsius(int count, int pin) {
+  float temperaturaMediata = 0;
+  float sumaTemperatura = 0;
+  for (int i =0; i < count; i++) {
+    int reading = analogRead(pin);
+    float voltage = reading * 5.0;
+    voltage /= 1024.0;
+    float temperatureCelsius = (voltage - 0.5) * 100 ;
+    sumaTemperatura = sumaTemperatura + temperatureCelsius;
+  }
+  return sumaTemperatura / (float)count;
 }
 
 void loop()
 {  
-sum0=0;
-sum1=0;
-sum2=0;
-sum3=0;
-sum4=0;
-
-//Calibrate temperature sensor!
-if (temperatureAux==0){
- 
-  temperatureAux=(analogRead((sensorPin5))/10)-10;
-  }
- 
-if (((analogRead((sensorPin5))/10)-10)>temperatureAux){
-  
-  Serial.println((analogRead((sensorPin5))/10)-10+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10));
-  temperaturaFinala=(analogRead((sensorPin5))/10)-10+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10);
- 
-  temperatureAux=((analogRead((sensorPin5))/10)-10)+((((analogRead((sensorPin5))/10)-10)-temperatureAux)*10);
-  }
-  else {
-   temperaturaFinala=(analogRead((sensorPin5))/10)-10;
-    }
-
-    
-    delay(5000);
-
-    
-
-for (int i=0;i<100;i++) {
-  sum0=sum0+analogRead(0);
-   sum1=sum1+analogRead(1);
-    sum2=sum2+analogRead(2);
-     sum3=sum3+analogRead(sensorPin4);
-     
-  }
-
-
-  //sensors calibration good!!!!!!!!!!!!!!!!
+//sensors calibration good!!!!!!!!!!!!!!!!
   
   voltage0=(analogRead(sensorPin1)*3.3)/4095;
-float mediaValoare0  =voltage0;
-Serial.println("ppm co");
-Serial.println(voltage0);
-Serial.println(3.027*exp(1.0698*voltage0));
+float mediaValoare0  =3.027*exp(1.0698*voltage0);
+//Serial.println("ppm co");
+//Serial.println(voltage0);
+//Serial.println(3.027*exp(1.0698*voltage0));
 
 voltage1=(analogRead(sensorPin2)*3.3)/4095;
-float mediaValoare1  =voltage1;
-Serial.println("ppm methan");
-Serial.println(voltage1);
-Serial.println(10.938*exp(1.7742*voltage1));
+float mediaValoare1  =10.938*exp(1.7742*voltage1);
+//Serial.println("ppm methan");
+//Serial.println(voltage1);
+//Serial.println(10.938*exp(1.7742*voltage1));
 
 voltage2=(analogRead(sensorPin3)*3.3)/4095;
-float mediaValoare2  =voltage2;
-Serial.println("ppm gas");
-Serial.println(voltage2);
-Serial.println(26.572*exp(1.2894*voltage2));
+float mediaValoare2  =26.572*exp(1.2894*voltage2);
+//Serial.println("ppm gas");
+//Serial.println(voltage2);
+//Serial.println(26.572*exp(1.2894*voltage2));
 
 voltage3=analogRead(sensorPin4);
 float mediaValoare3  =voltage3;
-Serial.println("Air quality:");
-Serial.println(voltage3);
+//Serial.println("Air quality:");
+//Serial.println(voltage3);
 
 voltage4=analogRead(sensorPin5);
-float mediaValoare4=CalcultateTemperature(voltage4);
-Serial.println("temperature:");
-Serial.println(mediaValoare4);
+float mediaValoare4=readTempInCelsius(100,sensorPin5)/5.5;
+//Serial.println("temperature:");
+//Serial.println(mediaValoare4);
 
 
 
@@ -138,7 +105,7 @@ Serial.println(mediaValoare4);
         JsonObject& root = jsonBuffer.createObject();
         root["gas"] = mediaValoare2;
         root["metan"] = mediaValoare1;
-        root["temperature"] = temperaturaFinala;
+        root["temperature"] = mediaValoare4;
         root["nh3"] = mediaValoare3;
         root["co"] = mediaValoare0;
         root["airumidity"] = mediaValoare3;

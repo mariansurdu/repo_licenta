@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="teamleader" (click)="addPersonToTeam()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Team View</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="card-background-page">
+  <ion-card >
+    <img src="{{selectedItem.photoUrl}}"/>
+    <div class="card-title">{{selectedItem.teamName}} </div>
+    <div class="card-subtitle">{{selectedItem.team.length}} Members</div>
+  </ion-card>
+  <!--*ngFor="let item of teams"-->
+  <button ion-button *ngIf="teamleader" [outline]="true" [round]="true" (click)="addActivitiesToTeam()">Add activities</button>
+  <ion-list>
+    <ion-item *ngFor="let it of selectedItem.team" (click)="goToPersonDetails(it)" >
+      <ion-avatar item-left >
+        <img src="{{it.photoUrl}}">
+      </ion-avatar>
+      <h2>{{it.firstname}}</h2>
+      <h3>{{it.email}}</h3>
+      <p>worker at {{it.teamName}}</p>
+    </ion-item>
+
+  </ion-list>
+  <ion-list>
+    <h3>Activities list</h3>
+    <ion-item *ngFor="let activity of activitiesList">
+      <p>Activity name:{{activity.name}}</p>
+      <p>Location:{{activity.location}}</p>
+      <p>Remarks:{{activity.remarks}}</p>
+      <p>This activity started on:{{activity.dateFrom}}</p>
+      <p>This activity will end on:{{activity.dateTo}}</p>
+    </ion-item>
+    <ion-item *ngIf="activitiesList.length==0">
+      <p>No activities added for this period!</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

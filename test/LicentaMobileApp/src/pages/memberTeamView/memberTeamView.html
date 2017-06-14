@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedItem.firstname}} data</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-item *ngIf="teamleader">
+    <ion-label>Select Time</ion-label>
+    <ion-datetime  [(ngModel)]="timeStarts"></ion-datetime>
+  </ion-item>
+  <button ion-button *ngIf="teamleader" (click)="getStatistics()" >Get Statistics</button>
+  <div style="display: block" *ngIf="teamleader">
+    {{message}}
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+    <button (click)="randomizeType1()" style="display: inline-block">Change diagram type</button>
+  </div>
+  <h3 *ngIf="teamleader">Statistics this month</h3>
+  <div style="display: block" *ngIf="teamleader">
+    <canvas baseChart
+            [datasets]="barChartData1"
+            [labels]="barChartLabels1"
+            [options]="barChartOptions1"
+            [legend]="barChartLegend1"
+            [chartType]="barChartType1"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+    <button (click)="randomizeType2()" style="display: inline-block">Change diagram type</button>
+  </div>
+  <div *ngIf="worker" id="profile-bg"></div>
+  <div *ngIf="worker" id="content">
+    <div id="profile-info" >
+      <img id="profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+      <h3 id="profile-name" >{{selectedItem.salutation}} {{selectedItem.firstname}}  {{selectedItem.lastname}}</h3>
+      <span id="profile-description">"Worker at {{selectedItem.teamName}}"</span>
+    </div>
+    <ion-list>
+      <!--      <ion-item ng-repeat="post in posts">
+              <img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+             awdawdawd
+              <div class="post-time">dadawd</div>
+              <div class="post-options">
+                <i class="icon-reply"></i>
+                <i class="icon-shuffle"></i>
+              </div>
+            </ion-item>-->
+    </ion-list>
+  </div>
+
+</ion-content>
