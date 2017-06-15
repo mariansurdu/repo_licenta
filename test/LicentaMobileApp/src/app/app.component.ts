@@ -1,7 +1,8 @@
 
 import {Component, ViewChild} from '@angular/core';
 import {Platform, Nav} from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import {StatusBar, Splashscreen} from 'ionic-native';
+import { Flashlight } from '@ionic-native/flashlight';
 
 
 import { HomePage } from '../pages/home/home';
@@ -19,6 +20,7 @@ import {EventCompService} from "../pages/eventcomp/eventcomp.service";
 import { AlertController } from 'ionic-angular';
 import {Push,PushObject,PushOptions} from "@ionic-native/push";
 import {AppService} from "./app.service";
+import { Vibration } from '@ionic-native/vibration';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,7 +37,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,loggedIn:Boolean}>;
 
-  constructor(public platform: Platform,public push:Push,public localStorageService: LocalStorageService,public ev:EventCompService,public alertCtrl: AlertController,public appService:AppService) {
+  constructor(public platform: Platform,public push:Push,private flashlight: Flashlight,private vibration: Vibration,public localStorageService: LocalStorageService,public ev:EventCompService,public alertCtrl: AlertController,public appService:AppService) {
     this.initializeApp();
     this.ev.getEmittedValue()
       .subscribe((item) => {
@@ -61,7 +63,7 @@ export class MyApp {
         }
       });
     this.loggedUser=localStorageService.get("data");
-    
+
     if (this.loggedUser!=null) {
       this.loggedIn=true;
       this.title="Welcome "+JSON.parse(this.loggedUser).name;
@@ -125,8 +127,8 @@ export class MyApp {
     this.title="Licenta";
     this.pages = [
       { title: 'Home Page', component: HomePage,loggedIn:this.loggedIn },
-      { title: 'Page One', component: Page1,loggedIn:!this.loggedIn },
-      { title: 'Page Two', component: Page2,loggedIn:!this.loggedIn },
+     // { title: 'Page One', component: Page1,loggedIn:!this.loggedIn },
+    //  { title: 'Page Two', component: Page2,loggedIn:!this.loggedIn },
       { title: 'Create', component: Create,loggedIn:!this.loggedIn },
       { title: 'Login', component: Login,loggedIn:!this.loggedIn },
       { title: 'Functions', component: Functions,loggedIn:this.loggedIn },
@@ -179,7 +181,7 @@ export class MyApp {
     });
 
     pushObject.on('notification').subscribe((data: any) => {
-      alert('x');
+      alert(data);
       console.log('message', data.message);
       //if user using app and push notification comes
       if (data.additionalData.foreground) {
@@ -189,16 +191,23 @@ export class MyApp {
           message: data.message,
           buttons: [{
             text: 'Ignore',
-            role: 'cancel'
-          }, {
-            text: 'View',
+            role: 'cancel',
             handler: () => {
-              //TODO: Your logic here
-             // this.nav.push(DetailsPage, {message: data.message});
+              this.flashlight.toggle();
+            }
+          }, {
+            text: 'ok',
+            handler: () => {
+
+              this.flashlight.toggle();
             }
           }]
         });
         confirmAlert.present();
+        this.vibration.vibrate(5000);
+        for (var i=0;i<10;i++) {
+          this.flashlight.toggle();
+        }
       } else {
         //if user NOT using app and push notification comes
         //TODO: Your logic on click of push notification directly

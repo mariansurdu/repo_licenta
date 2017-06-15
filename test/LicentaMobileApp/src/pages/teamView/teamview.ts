@@ -20,7 +20,8 @@ export class TeamView {
   data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
   constructor(public navCtrl: NavController,public navParams:NavParams,public ev:EventCompService,public teamFormService:TeamFormService,private localStorageService:LocalStorageService) {
     alert("You are teamlead:"+JSON.parse(this.loggedUser).personType==="1"?true:false);
-    this.teamleader=JSON.parse(this.loggedUser).personType==="1"?true:false;
+    this.teamleader=JSON.parse(this.loggedUser).personType==1?true:false;
+    alert("Teamleader:"+this.teamleader);
     this.selectedItem=navParams.get('item');
     console.log(this.selectedItem);
     this.ev.getEmittedValue()
