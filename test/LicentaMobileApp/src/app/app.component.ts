@@ -146,7 +146,7 @@ export class MyApp {
   }
 
   initPushNotification() {
-    alert("init"+this.loggedIn);
+    //alert("init"+this.loggedIn);
     if (!this.platform.is('cordova')) {
       console.warn("Push notifications not initialized. Cordova is not available - Run in physical device");
       return;

@@ -17,7 +17,8 @@ export class Functions {
   public gas:any;
   public metan:any;
   public temperature:any;
-  public nh3:any;
+  public smoke:any;
+  public nox:any;
   public co:any;
   public airumidity:any;
   public co2:any;
@@ -25,7 +26,8 @@ export class Functions {
   arrayGas:any=[];
   days:any=["Sunday","Monday","Tueday","Wednesday","Thursday","Friday","Saturday"];
   arrayMetan:any=[];
-  arrayNH3:any=[];
+  arraySmoke:any=[];
+  arrayNOX:any=[];
   arrayCO:any=[];
   arrayCO2:any=[];
   arrayAirQuality:any=[];
@@ -44,7 +46,7 @@ export class Functions {
     platform.ready().then(() => {
       this.monStart = false;
         this.showListOfDevices();
-         this.metan=0;this.co2=0;this.co=0;this.airumidity=0;this.nh3=0;this.temperature=0;this.gas=0;
+         this.metan=0;this.co2=0;this.co=0;this.airumidity=0;this.smoke=0;this.nox=0;this.temperature=0;this.gas=0;
 
     });
   }
@@ -60,7 +62,8 @@ export class Functions {
   public barChartData:any[] = [
     {data: [0,0,0,0,0,0,0], label: 'Gas'},
     {data: [0,0,0,0,0,0,0], label: 'Metan'},
-    {data: [0,0,0,0,0,0,0], label: 'NH3'},
+    {data: [0,0,0,0,0,0,0], label: 'Smoke'},
+    {data: [0,0,0,0,0,0,0], label: 'NOx'},
     {data: [0,0,0,0,0,0,0], label: 'CO'},
     {data: [0,0,0,0,0,0,0], label: 'CO2'},
     {data: [0,0,0,0,0,0,0], label: 'Temperature'},
@@ -143,14 +146,15 @@ export class Functions {
             this.metan=this.data.metan;
             this.temperature=this.data.temperature;
             this.co=this.data.co;
-            this.nh3=this.data.nh3;
+            this.smoke=this.data.nh3;
             this.airumidity=this.data.airumidity;
             this.co2=this.data.co2;
             this.gas=this.data.gas;
             this.metan=this.data.metan;
+            this.nox=this.data.Nox;
             this.temperature=this.data.temperature;
             this.co=this.data.co;
-            this.nh3=this.data.nh3;
+            this.smoke=this.data.smoke;
             this.airumidity=this.data.airumidity;
             this.co2=this.data.co2;
             this.arrayAirQuality.push(this.data.airumidity);
@@ -158,14 +162,16 @@ export class Functions {
             this.arrayTemperature.push(this.data.temperature);
             this.arrayCO.push(this.data.co);
             this.arrayCO2.push(this.data.co2);
-            this.arrayNH3.push(this.data.nh3);
+            this.arraySmoke.push(this.data.smoke);
+            this.arrayNOX.push(this.data.Nox);
             this.arrayGas.push(this.data.gas);
 
             this.labels.push(this.days[new Date().getUTCDay()]);
             this.barChartData=[
               {data: this.arrayGas, label: 'Gas'},
               {data: this.arrayMetan, label: 'Metan'},
-              {data: this.arrayNH3, label: 'NH3'},
+              {data: this.arraySmoke, label: 'NH3'},
+              {data: this.arrayNOX, label: 'NOx'},
               {data: this.arrayTemperature, label: 'Temperature'},
               {data: this.arrayCO, label: 'CO'},
               {data: this.arrayCO2, label: 'CO2'},
@@ -176,7 +182,7 @@ export class Functions {
               alert(res);
             })
              })
-        }, 1000)
+        }, 2000)
       })
   }
 

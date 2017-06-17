@@ -17,7 +17,8 @@ export class MemberTeamView {
   labels:any=[];
   arrayGas:any=[];
   arrayMetan:any=[];
-  arrayNH3:any=[];
+  arraySmoke:any=[];
+  arrayNOX:any=[];
   arrayCO:any=[];
   arrayCO2:any=[];
   arrayAirQuality:any=[];
@@ -26,7 +27,8 @@ export class MemberTeamView {
   labels1:any=[];
   arrayGas1:any=[];
   arrayMetan1:any=[];
-  arrayNH31:any=[];
+  arraySmoke1:any=[];
+  arrayNOX1:any=[];
   arrayCO1:any=[];
   arrayCO21:any=[];
   arrayAirQuality1:any=[];
@@ -50,13 +52,14 @@ export class MemberTeamView {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: [0,0,0,0,0,0,0], label: 'Gas'},
-    {data: [0,0,0,0,0,0,0], label: 'Metan'},
-    {data: [0,0,0,0,0,0,0], label: 'NH3'},
-    {data: [0,0,0,0,0,0,0], label: 'CO'},
-    {data: [0,0,0,0,0,0,0], label: 'CO2'},
-    {data: [0,0,0,0,0,0,0], label: 'Air quality'},
-    {data: [0,0,0,0,0,0,0], label: 'Temperature'}
+    {data: [0,0,0,0,0,0,0,0], label: 'Gas'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Metan'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Smoke'},
+    {data: [0,0,0,0,0,0,0,0], label: 'NOx'},
+    {data: [0,0,0,0,0,0,0,0], label: 'CO'},
+    {data: [0,0,0,0,0,0,0,0], label: 'CO2'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Air quality'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Temperature'}
   ];
   public lineChartType1:string = 'line';
   public barChartLabels1:string[] = this.labels1;
@@ -64,13 +67,14 @@ export class MemberTeamView {
   public barChartLegend1:boolean = true;
 
   public barChartData1:any[] = [
-    {data: [0,0,0,0,0,0,0], label: 'Gas'},
-    {data: [0,0,0,0,0,0,0], label: 'Metan'},
-    {data: [0,0,0,0,0,0,0], label: 'NH3'},
-    {data: [0,0,0,0,0,0,0], label: 'CO'},
-    {data: [0,0,0,0,0,0,0], label: 'CO2'},
-    {data: [0,0,0,0,0,0,0], label: 'Air quality'},
-    {data: [0,0,0,0,0,0,0], label: 'Temperature'}
+    {data: [0,0,0,0,0,0,0,0], label: 'Gas'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Metan'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Smoke'},
+    {data: [0,0,0,0,0,0,0,0], label: 'NOx'},
+    {data: [0,0,0,0,0,0,0,0], label: 'CO'},
+    {data: [0,0,0,0,0,0,0,0], label: 'CO2'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Air quality'},
+    {data: [0,0,0,0,0,0,0,0], label: 'Temperature'}
   ];
   constructor(public navCtrl: NavController,public navParams:NavParams,public personalDataService:PersonalDataService,public localStorageService:LocalStorageService,
               private spinnerDialog: SpinnerDialog) {
@@ -104,7 +108,8 @@ export class MemberTeamView {
        this.arrayMetan1.push(res[0].dataUser[i].metan);
        this.arrayCO1.push(res[0].dataUser[i].co);
        this.arrayCO21.push(res[0].dataUser[i].co2);
-       this.arrayNH31.push(res[0].dataUser[i].nh3);
+       this.arraySmoke1.push(res[0].dataUser[i].smoke);
+         this.arrayNOX1.push(res[0].dataUser[i].Nox);
        this.arrayGas1.push(res[0].dataUser[i].gas);
          this.arrayTemperature1.push(res[0].dataUser[i].temperature);
        this.labels1.push(this.days[new Date(res[0].dataUser[i].date).getDay()]);
@@ -113,8 +118,9 @@ export class MemberTeamView {
        this.barChartData1 = [
        {data: this.arrayGas1, label: 'Gas'},
        {data: this.arrayMetan1, label: 'Metan'},
-       {data: this.arrayNH31, label: 'NH3'},
+       {data: this.arraySmoke1, label: 'Smoke'},
        {data: this.arrayCO1, label: 'CO'},
+         {data: this.arrayNOX1, label: 'NOx'},
        {data: this.arrayCO21, label: 'CO2'},
        {data: this.arrayAirQuality1, label: 'Air quality'},
          {data:this.arrayTemperature1,label:'Temperature'}
@@ -161,7 +167,8 @@ export class MemberTeamView {
         this.arrayMetan = [];
         this.arrayCO= [];
         this.arrayCO2 = [];
-        this.arrayNH3 = [];
+        this.arraySmoke = [];
+        this.arrayNOX=[];
         this.arrayGas = [];
         this.arrayTemperature=[];
 
@@ -170,7 +177,8 @@ export class MemberTeamView {
           this.arrayMetan.push(0);
           this.arrayCO.push(0);
           this.arrayCO2.push(0);
-          this.arrayNH3.push(0);
+          this.arraySmoke.push(0);
+          this.arrayNOX.push(0);
           this.arrayGas.push(0);
           this.arrayTemperature.push(0);
           this.labels.push('-');
@@ -178,8 +186,9 @@ export class MemberTeamView {
         this.barChartData = [
           {data: this.arrayGas, label: 'Gas'},
           {data: this.arrayMetan, label: 'Metan'},
-          {data: this.arrayNH3, label: 'NH3'},
+          {data: this.arraySmoke, label: 'NH3'},
           {data: this.arrayCO, label: 'CO'},
+          {data: this.arrayNOX, label: 'NOx'},
           {data: this.arrayCO2, label: 'CO2'},
           {data: this.arrayAirQuality, label: 'Air quality'},
           {data:this.arrayTemperature,label:'Temperature'}
@@ -191,7 +200,8 @@ export class MemberTeamView {
         this.arrayMetan = [];
         this.arrayCO = [];
         this.arrayCO2 = [];
-        this.arrayNH3 = [];
+        this.arraySmoke = [];
+        this.arrayNOX=[];
         this.arrayGas = [];
 
         for (var i = 0; i < this.auxData.length; i++) {
@@ -200,7 +210,8 @@ export class MemberTeamView {
           this.arrayMetan.push(this.auxData[i].metan);
           this.arrayCO.push(this.auxData[i].co);
           this.arrayCO2.push(this.auxData[i].co2);
-          this.arrayNH3.push(this.auxData[i].nh3);
+          this.arraySmoke.push(this.auxData[i].smoke);
+          this.arrayNOX.push(this.auxData[i].Nox);
           this.arrayTemperature.push(this.auxData[i].temperature);
           this.arrayGas.push(this.auxData[i].gas);
 
@@ -208,7 +219,8 @@ export class MemberTeamView {
         this.barChartData= [
           {data: this.arrayGas, label: 'Gas'},
           {data: this.arrayMetan, label: 'Metan'},
-          {data: this.arrayNH3, label: 'NH3'},
+          {data: this.arraySmoke, label: 'Smoke'},
+          {data: this.arrayNOX, label: 'NOx'},
           {data: this.arrayCO, label: 'CO'},
           {data: this.arrayCO2, label: 'CO2'},
           {data: this.arrayAirQuality, label: 'Air quality'},
