@@ -20,27 +20,33 @@
   <!--*ngFor="let item of teams"-->
   <button ion-button *ngIf="teamleader" [outline]="true" [round]="true" (click)="addActivitiesToTeam()">Add activities</button>
   <ion-list>
-    <ion-item *ngFor="let it of selectedItem.team" (click)="goToPersonDetails(it)" >
-      <ion-avatar item-left >
-        <img src="{{it.photoUrl}}">
-      </ion-avatar>
-      <h2>{{it.firstname}}</h2>
-      <h3>{{it.email}}</h3>
-      <p>worker at {{it.teamName}}</p>
+    <ion-item *ngFor="let it of selectedItem.team"  >
+
+       <ion-avatar (click)="goToPersonDetails(it)" item-left >
+         <img src="{{it.photoUrl}}">
+       </ion-avatar>
+       <h2>{{it.firstname}}</h2>
+       <h3>{{it.email}}</h3>
+       <p>worker at {{it.teamName}}</p>
+
+      <p>{{it.phone}} <span style="margin-left:45%;"><ion-icon style="font-size:x-large;" ios="ios-call" md="md-call" (click)="call(it.phone)">&nbsp;&nbsp;</ion-icon><ion-icon style="font-size:x-large;" (click)="sendMessage(it.phone)" ios="ios-chatboxes" md="md-chatboxes"></ion-icon></span></p>
     </ion-item>
 
   </ion-list>
   <ion-list>
     <h3>Activities list</h3>
+    <ion-card>
     <ion-item *ngFor="let activity of activitiesList">
-      <p>Activity name:{{activity.name}}</p>
-      <p>Location:{{activity.location}}</p>
-      <p>Remarks:{{activity.remarks}}</p>
-      <p>This activity started on:{{activity.dateFrom}}</p>
-      <p>This activity will end on:{{activity.dateTo}}</p>
+      <p style="color:#2980FF;font-weight:600;">Activity name:{{activity.name}}</p>
+      <p style="color:#2980FF;font-weight:600;" >Location:{{activity.location}}</p>
+      <p style="color:#2980FF;font-weight:600;">Remarks:{{activity.remarks}}</p>
+      <p style="color:#2980FF;font-weight:600;">Start at:<span style="color:#3eff0b">{{dateConverter(activity.dateFrom)}}</span></p>
+      <p style="color:#2980ff;font-weight:600;">End at:<span style="color:#ff000b">{{dateConverter(activity.dateTo)}}</span></p>
     </ion-item>
+      <br>
+      </ion-card>
     <ion-item *ngIf="activitiesList.length==0">
-      <p>No activities added for this period!</p>
+      <p style="color:red">No activities added for this period!</p>
     </ion-item>
   </ion-list>
 </ion-content>

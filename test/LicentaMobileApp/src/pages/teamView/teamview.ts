@@ -81,4 +81,24 @@ export class TeamView {
     })
   }
 
+  dateConverter(date:any) {
+    var days=["Sunday","Monday","Tueday","Wednesday","Thursday","Friday","Saturday"];
+    let date1=new Date(date);
+    var month=date1.getUTCMonth()+1;
+    var hours=date1.getHours();
+    var minutes=date1.getMinutes();
+    var today=days[date1.getUTCDay()];
+    var x=today+" "+date1.getUTCDate()+"/"+month+"/"+date1.getUTCFullYear();
+    return x;
+
+  }
+
+  call(phone:any) {
+    window.open("tel:" + phone);
+  }
+
+  sendMessage(phone:any) {
+    window.open("sms:" + phone);
+  }
+
 }

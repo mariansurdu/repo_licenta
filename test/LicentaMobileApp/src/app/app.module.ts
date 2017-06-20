@@ -45,6 +45,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import {ActivityFormService} from "../pages/activityForm/activityForm.service";
 import {ActivityForm} from "../pages/activityForm/activityForm";
+import {BackgroundMode} from "@ionic-native/background-mode";
 
 
 @NgModule({
@@ -101,6 +102,6 @@ import {ActivityForm} from "../pages/activityForm/activityForm";
     ActivityForm
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight,SMS,LocalNotifications,PhotoViewer,Vibration,
-    ImagePicker,PhotoLibrary,Camera,ActivityFormService]
+    ImagePicker,PhotoLibrary,Camera,ActivityFormService,BackgroundMode]
 })
 export class AppModule {}

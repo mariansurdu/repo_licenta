@@ -17,6 +17,7 @@ export class PersonToTeamForm {
   lastname:any;
   salutation:any;
   data:any;
+  phone:any;
   loggedUser:any;
   photoUrl:any="http://www.mvc.gov.my/ph_album/mvc_council/no-profile-photo.jpg"
   constructor(public navCtrl: NavController,public navParams:NavParams,public teamFormService:TeamFormService,public localStorageService:LocalStorageService,public ev:EventCompService) {
@@ -30,7 +31,7 @@ export class PersonToTeamForm {
 
   addToTeam() {
     console.log("Xxx"+this.loggedUser._id);
-    this.data={teamleaderId:JSON.parse(this.loggedUser)._id,flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
+    this.data={teamleaderId:JSON.parse(this.loggedUser)._id,flagEv:"memberTeam",photoUrl:this.photoUrl,idTeam:this.selectedItem._id,email:this.email,teamName:this.teamName,phone:this.phone,firstname:this.firstname,lastname:this.lastname,salutation:this.salutation}
     console.log(this.data);
     this.teamFormService.addPersonToTeam(this.data).subscribe((res)=>{
         console.log(res);

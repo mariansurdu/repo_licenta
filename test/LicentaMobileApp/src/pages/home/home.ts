@@ -50,13 +50,7 @@ export class HomePage {
   ngInit() {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane', 'american-football', 'boat', 'bluetooth', 'build'];
     this.items = [];
-
-    this.localNotifications.schedule({
-      id: 1,
-      text: 'Single ILocalNotification',
-      sound: 'file://sound.mp3',
-      data: { secret: 'key' }
-    });
+    
     //this.sms.send('0733931547', 'Hello world!');
    // this.photoViewer.show('http://www.car-brand-names.com/wp-content/uploads/2016/02/Skoda-logo.png');
     this.spinnerDialog.show("Loading","Company news");

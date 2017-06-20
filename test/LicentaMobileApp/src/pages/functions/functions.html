@@ -10,18 +10,16 @@
 <ion-content padding>
 
   <h3>List of devices.Tap to connect</h3>
-  <div *ngFor="let device of devices" class="row">
-<p (click)="connectToDevice(device.id)">{{device.name}}:{{device.id}}</p>
-    <p *ngIf="connected">Connected!</p>
-    <div *ngIf="onConnect"><p>Connecting<ion-spinner></ion-spinner></p></div>
-  </div>
+  <ion-card *ngFor="let device of devices">
+  <p style="color: #387ef5;font-weight: 500"(click)="connectToDevice(device.id)">{{device.name}}:<span style="color:red">{{device.id}}</span></p>
+  </ion-card>
  <!-- <button ion-button secondary menuToggle>Toggle Menu</button>-->
   <button ion-button  (click)="connect()">Connect</button>
   <!--<button ion-button (click)="writeDataToSerial()">Write</button>-->
   <button ion-button (click)="readDataFromSerial()">Scan</button>
-  <button ion-button (click)="startMonitorizing()">Realtime scan</button>
+  <button ion-button (click)="startMonitorizing()">RTS</button>
   <!--<button ion-button (click)="showListOfDevices()">List</button>-->
-  <button ion-button [outline]="true" [round]="true" (click)="stopMonitorizing()">Stop</button>
+  <button ion-button [outline]="true" [round]="true" (click)="stopMonitorizing()">Stop RTS</button>
     <div style="display: block">
       <canvas baseChart
               [datasets]="barChartData"
@@ -32,8 +30,7 @@
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div>
-  <button (click)="randomizeType()" style="display: inline-block">Change diagram type</button>
-  {{data}}
+  <button (click)="randomizeType()" style="display: inline-block;float: right">Change diagram type</button>
   <ion-list>
     <div class="col-md-6">
     <ion-item>
@@ -81,8 +78,6 @@
       <ion-input type="number" disabled="true" [(ngModel)]="co2" ></ion-input>
     </ion-item>
       </div>
-
-
 
   </ion-list>
 

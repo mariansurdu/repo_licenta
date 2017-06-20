@@ -3,6 +3,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Platform, Nav} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import { Flashlight } from '@ionic-native/flashlight';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 import { HomePage } from '../pages/home/home';
@@ -21,6 +22,7 @@ import { AlertController } from 'ionic-angular';
 import {Push,PushObject,PushOptions} from "@ionic-native/push";
 import {AppService} from "./app.service";
 import { Vibration } from '@ionic-native/vibration';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,8 +39,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,loggedIn:Boolean}>;
 
-  constructor(public platform: Platform,public push:Push,private flashlight: Flashlight,private vibration: Vibration,public localStorageService: LocalStorageService,public ev:EventCompService,public alertCtrl: AlertController,public appService:AppService) {
+  constructor(public platform: Platform,public push:Push,private flashlight: Flashlight,private vibration: Vibration,public localStorageService: LocalStorageService,public ev:EventCompService,
+              public alertCtrl: AlertController,public appService:AppService,private backgroundMode: BackgroundMode,private localNotifications: LocalNotifications) {
     this.initializeApp();
+    this.backgroundMode.enable();
     this.ev.getEmittedValue()
       .subscribe((item) => {
         if (item.flagEv==="login" || item.flagEv==="create") {
@@ -53,7 +57,7 @@ export class MyApp {
             {title: 'Create', component: Create, loggedIn: !this.loggedIn},
             {title: 'Login', component: Login, loggedIn: !this.loggedIn},
             {title: 'Functions', component: Functions, loggedIn: this.loggedIn},
-            {title: 'PLanning', component: PLanning, loggedIn: this.loggedIn},
+            {title: 'Planning', component: PLanning, loggedIn: this.loggedIn},
             {title: 'Profile', component: Profile, loggedIn: this.loggedIn},
             {title: 'Settings', component: Settings, loggedIn: this.loggedIn},
             {title: 'Personal Data', component: PersonalData, loggedIn: this.loggedIn}
@@ -81,7 +85,7 @@ export class MyApp {
       { title: 'Create', component: Create,loggedIn:!this.loggedIn },
       { title: 'Login', component: Login,loggedIn:!this.loggedIn },
       { title: 'Functions', component: Functions,loggedIn:this.loggedIn },
-      { title: 'PLanning', component: PLanning,loggedIn:this.loggedIn },
+      { title: 'Planning', component: PLanning,loggedIn:this.loggedIn },
       { title: 'Profile', component: Profile,loggedIn:this.loggedIn },
       { title: 'Settings', component: Settings,loggedIn:this.loggedIn },
       { title: 'Personal Data', component: PersonalData,loggedIn:this.loggedIn }
@@ -132,7 +136,7 @@ export class MyApp {
       { title: 'Create', component: Create,loggedIn:!this.loggedIn },
       { title: 'Login', component: Login,loggedIn:!this.loggedIn },
       { title: 'Functions', component: Functions,loggedIn:this.loggedIn },
-      { title: 'PLanning', component: PLanning,loggedIn:this.loggedIn },
+      { title: 'Planning', component: PLanning,loggedIn:this.loggedIn },
       { title: 'Profile', component: Profile,loggedIn:this.loggedIn },
       { title: 'Settings', component: Settings,loggedIn:this.loggedIn },
       { title: 'Personal Data', component: PersonalData,loggedIn:this.loggedIn }
@@ -199,7 +203,7 @@ export class MyApp {
             text: 'ok',
             handler: () => {
 
-              this.flashlight.toggle();
+             // this.flashlight.toggle();
             }
           }]
         });
@@ -208,6 +212,12 @@ export class MyApp {
         for (var i=0;i<10;i++) {
           this.flashlight.toggle();
         }
+        this.localNotifications.schedule({
+          id: new Date().getMilliseconds()+234,
+          text: data.message,
+          sound: 'file://sound.mp3',
+          data: { secret: 'key' }
+        });
       } else {
         //if user NOT using app and push notification comes
         //TODO: Your logic on click of push notification directly

@@ -102,9 +102,9 @@ export class MemberTeamView {
          this.spinnerDialog.hide();
        if (res.length!=0) {
        this.message="";
-       this.data = res[0].dataUser[0].airquality;
+       this.data = res[0].dataUser[0].airumidity;
        for (var i = 0; i < res[0].dataUser.length; i++) {
-       this.arrayAirQuality1.push(res[0].dataUser[i].airquality);
+       this.arrayAirQuality1.push(res[0].dataUser[i].airumidity);
        this.arrayMetan1.push(res[0].dataUser[i].metan);
        this.arrayCO1.push(res[0].dataUser[i].co);
        this.arrayCO21.push(res[0].dataUser[i].co2);
@@ -206,7 +206,7 @@ export class MemberTeamView {
 
         for (var i = 0; i < this.auxData.length; i++) {
           this.labels.push(this.dateConverter(new Date(this.auxData[i].date)));
-          this.arrayAirQuality.push(this.auxData[i].airquality);
+          this.arrayAirQuality.push(this.auxData[i].airumidity);
           this.arrayMetan.push(this.auxData[i].metan);
           this.arrayCO.push(this.auxData[i].co);
           this.arrayCO2.push(this.auxData[i].co2);

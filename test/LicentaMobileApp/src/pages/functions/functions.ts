@@ -146,7 +146,7 @@ export class Functions {
             this.metan=this.data.metan;
             this.temperature=this.data.temperature;
             this.co=this.data.co;
-            this.smoke=this.data.nh3;
+            this.smoke=this.data.smoke;
             this.airumidity=this.data.airumidity;
             this.co2=this.data.co2;
             this.gas=this.data.gas;
@@ -170,7 +170,7 @@ export class Functions {
             this.barChartData=[
               {data: this.arrayGas, label: 'Gas'},
               {data: this.arrayMetan, label: 'Metan'},
-              {data: this.arraySmoke, label: 'NH3'},
+              {data: this.arraySmoke, label: 'Smoke'},
               {data: this.arrayNOX, label: 'NOx'},
               {data: this.arrayTemperature, label: 'Temperature'},
               {data: this.arrayCO, label: 'CO'},
@@ -187,6 +187,13 @@ export class Functions {
   }
 
   startMonitorizing() {
+    let alert = this.alertCtrl.create({
+      title: 'RTS Start',
+      subTitle: 'You start RTS(Real time scan) mode!You can stop by pressing stop button',
+      buttons: ['OK']
+    });
+    alert.present();
+
     this.monStart=true;
     setInterval(()=>{
       if (this.monStart)
