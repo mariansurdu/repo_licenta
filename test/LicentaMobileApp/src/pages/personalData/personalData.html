@@ -13,7 +13,7 @@
     <ion-datetime  [(ngModel)]="selectedDate"></ion-datetime>
   </ion-item>
   <button ion-button (click)="getStatistics()">Get Statistics </button>
-  <button ion-button (click)="getReportPdf()">Get Report</button>
+  <button ion-button (click)="getReportPdfData()">Get Report</button>
   <div style="display: block" id="test">
     <canvas baseChart
             [datasets]="barChartData1"

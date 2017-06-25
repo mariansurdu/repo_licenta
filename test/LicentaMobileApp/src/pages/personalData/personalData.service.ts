@@ -10,6 +10,7 @@ export class PersonalDataService {
   private resourceUrl: string =  'https://licenta112.herokuapp.com/datauser';
   private resourceUrl1: string =  'https://licenta112.herokuapp.com/dataByDate';
   private resourceUrl2:string='https://licenta112.herokuapp.com/getAdvice/';
+  private resourceUrl3:string='https://licenta112.herokuapp.com/getDataReport';
   constructor (private http: Http) {}
 
   getData(id:number): Observable<any> {
@@ -23,11 +24,15 @@ export class PersonalDataService {
     console.log(id);
     return this.http.post(this.resourceUrl1,{date:d,userId:id});
   }
-  
+
   getAdvice(id:any) {
     return this.http.get(this.resourceUrl2+id).map((res:Response)=>{
       return res.json();
     })
+  }
+
+  getReportData(d:any,id:any):any {
+    return this.http.post(this.resourceUrl3,{date:d,userId:id});
   }
 
 }

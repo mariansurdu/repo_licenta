@@ -46,6 +46,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import {ActivityFormService} from "../pages/activityForm/activityForm.service";
 import {ActivityForm} from "../pages/activityForm/activityForm";
 import {BackgroundMode} from "@ionic-native/background-mode";
+import {ResumeView} from "../pages/resumeView/resumeView";
+import {PdfViewerComponent} from "ng2-pdf-viewer/dist/index";
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import {BackgroundMode} from "@ionic-native/background-mode";
     TeamView,
     PersonToTeamForm,
     MemberTeamView,
-    ActivityForm
+    ActivityForm,
+    ResumeView,
+    PdfViewerComponent
 
   ],
   imports: [
@@ -99,7 +103,8 @@ import {BackgroundMode} from "@ionic-native/background-mode";
     TeamView,
     PersonToTeamForm,
     MemberTeamView,
-    ActivityForm
+    ActivityForm,
+    ResumeView
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlanningService,SettingsService,CreateService,LoginService,HomeService,CompanyService,PersonalDataService,FunctionsService,ProfileService,EventCompService,TeamFormService,Push,AppService,SpinnerDialog,Flashlight,SMS,LocalNotifications,PhotoViewer,Vibration,
     ImagePicker,PhotoLibrary,Camera,ActivityFormService,BackgroundMode]
