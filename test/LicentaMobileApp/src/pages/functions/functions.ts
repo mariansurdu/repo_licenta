@@ -182,7 +182,7 @@ export class Functions {
               alert(res);
             })
              })
-        }, 2000)
+        }, 3000)
       })
   }
 
@@ -213,7 +213,7 @@ export class Functions {
 
   showListOfDevices() {
     BluetoothSerial.list().then((response)=>{
-      alert("Devices:"+JSON.stringify(response));
+     // alert("Devices:"+JSON.stringify(response));
       this.devices=response;
     })
   }

@@ -24,7 +24,7 @@ export class TeamForm {
   constructor(public navCtrl: NavController,private localStorageService:LocalStorageService,public teamFormService:TeamFormService,public ev:EventCompService) {}
 
   ngOnInit() {
-    alert(JSON.parse(this.loggedUser).companyCui)
+   // alert(JSON.parse(this.loggedUser).companyCui)
     this.companyCui=JSON.parse(this.loggedUser).cui;
   }
 

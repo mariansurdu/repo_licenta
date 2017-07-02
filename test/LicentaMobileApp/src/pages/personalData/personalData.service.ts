@@ -11,6 +11,7 @@ export class PersonalDataService {
   private resourceUrl1: string =  'https://licenta112.herokuapp.com/dataByDate';
   private resourceUrl2:string='https://licenta112.herokuapp.com/getAdvice/';
   private resourceUrl3:string='https://licenta112.herokuapp.com/getDataReport';
+  private resourceUrl4:string='https://licenta112.herokuapp.com/getDataReportE';
   constructor (private http: Http) {}
 
   getData(id:number): Observable<any> {
@@ -33,6 +34,9 @@ export class PersonalDataService {
 
   getReportData(d:any,id:any):any {
     return this.http.post(this.resourceUrl3,{date:d,userId:id});
+  }
+  getReportDataE(d:any,id:any):any {
+    return this.http.post(this.resourceUrl4,{date:d,userId:id});
   }
 
 }

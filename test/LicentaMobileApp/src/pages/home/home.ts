@@ -73,7 +73,7 @@ export class HomePage {
 }
 
   addPhoto() {
-    alert("Get p")
+  //  alert("Get p")
 
     const options: CameraOptions = {
       quality: 70,

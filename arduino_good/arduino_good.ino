@@ -53,73 +53,8 @@ float readTempInCelsius(int count, int pin) {
 
 void loop()
 {  
-//sensors calibration good!!!!!!!!!!!!!!!!
-  tone(piezoPin, 1000, 1000);
-  voltage0=(analogRead(sensorPin1)*3.3)/4095;
-float mediaValoare0  =3.027*exp(1.0698*voltage0);
-//Serial.println("ppm co");
-//Serial.println(voltage0);
-//Serial.println(3.027*exp(1.0698*voltage0));
-
-voltage1=(analogRead(sensorPin2)*3.3)/4095;
-float mediaValoare1  =10.938*exp(1.7742*voltage1);
-//Serial.println("ppm methan");
-//Serial.println(voltage1);
-//Serial.println(10.938*exp(1.7742*voltage1));
-
-voltage2=(analogRead(sensorPin3)*3.3)/4095;
-float mediaValoare2  =26.572*exp(1.2894*voltage2);
-//Serial.println("ppm gas");
-//Serial.println(voltage2);
-Serial.println(26.572*exp(1.2894*voltage2));
-
-voltage3=analogRead(sensorPin4);
-float mediaValoare3  =voltage3;
-//Serial.println("Air quality:");
-//Serial.println(voltage3);
-
-voltage4=analogRead(sensorPin5);
-float mediaValoare4=readTempInCelsius(100,sensorPin5)/5.5;
-//Serial.println("temperature:");
-//Serial.println(mediaValoare4);
-
-
-
-
-//**************************************************
-
-
-
-  if(Serial.available()){
-  while(Serial.available())
-    {
-      char inChar = (char)Serial.read(); //read the input
-      inputString += inChar;        //make a string of the characters coming on serial
-    }
-    //Serial.write("[1,2,3,4]");
-    while (Serial.available() > 0)  
-    { junk = Serial.read() ; }      // clear the serial buffer
-    if(inputString == "g"){  
-    //  json="{'gas:'" + String(345678,DEC)+"," + "'metan:'" + String(3457878,DEC)+","+"'temperature:'" + String(345678,DEC)+","+"nh3:'" + String(345678,DEC)+","+"'co:'" + String(345678,DEC)+"," + "'air umidity:'" + String(3457878,DEC)+","+"'co2:'" + String(341678,DEC)+"}";
-        int valoare=analogRead(0);
-        StaticJsonBuffer<400> jsonBuffer;
-        JsonObject& root = jsonBuffer.createObject();
-        root["gas"] = mediaValoare2;
-        root["metan"] = mediaValoare1;
-        root["temperature"] = mediaValoare4;
-        root["nh3"] = mediaValoare3;
-        root["co"] = mediaValoare0;
-        root["airumidity"] = mediaValoare3;
-        root["co2"]=mediaValoare2;
-          
-          
-        root.prettyPrintTo(Serial);
-
-     //char json[]="{\"gas\":20,\"metan\":60,\"temperature\":29,\"nh3\":3,\"co\":30,\"airumidity\":50,\"co2\":28}";
-      //Serial.println(root);  
-    }
-    inputString = "";
+Serial.println(analogRead(sensorPin4));
   }
-}
+
 
 

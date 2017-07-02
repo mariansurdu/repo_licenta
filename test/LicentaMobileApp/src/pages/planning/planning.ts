@@ -27,12 +27,12 @@ export class PLanning {
   }
 
   ngOnInit() {
-    alert(JSON.parse(this.loggedUser).personType);
+    //alert(JSON.parse(this.loggedUser).personType);
     if (JSON.parse(this.loggedUser).personType!=1) {
         this.teamLeader=false;
     }
     else {
-      alert("true")
+     // alert("true")
       this.teamLeader=true;
     }
     this.spinnerDialog.show("Loading","Teams");

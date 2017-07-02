@@ -63,7 +63,7 @@ export class MyApp {
             {title: 'Personal Data', component: PersonalData, loggedIn: this.loggedIn}
           ];
           console.log(this.pages);
-          alert("x")
+          //alert("x")
         }
       });
     this.loggedUser=localStorageService.get("data");
@@ -174,10 +174,10 @@ export class MyApp {
       this.localStorageService.add("tempToken",data.registrationId);
       alert(data.registrationId+this.loggedIn);
       if (this.loggedIn) {
-        alert("User-ul este logat si update token");
+       // alert("User-ul este logat si update token");
         this.appService.updateToken({userId: JSON.parse(this.loggedUser)._id, token: data.registrationId}).subscribe((res)=> {
           if (res.status == 200) {
-            alert("Token updated successfully");
+           // alert("Token updated successfully");
           }
         })
       }
@@ -185,7 +185,7 @@ export class MyApp {
     });
 
     pushObject.on('notification').subscribe((data: any) => {
-      alert(data);
+    //  alert(data);
       console.log('message', data.message);
       //if user using app and push notification comes
       if (data.additionalData.foreground) {

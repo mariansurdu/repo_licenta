@@ -29,18 +29,18 @@ export class Login {
   password:String;
 
   login() {
-    alert("1"+this.email);
+   // alert("1"+this.email);
     //this.localStorageService.get("tempToken").toString()
     this.loginService.login(this.email,this.password,null).subscribe((res)=>{
       console.log(res);
-      alert(res.status);
+    //  alert(res.status);
       if(res.status==200) {
         this.localStorageService.set("data",res._body);
         this.navCtrl.push(HomePage);
         this.ev.sendOk1({flagEv:"login",another:true});
         this.appService.updateToken({userId: JSON.parse(res._body)._id, token: this.localStorageService.get("tempToken").toString()}).subscribe((res)=> {
           if (res.status == 200) {
-            alert("Token updated successfully");
+            //alert("Token updated successfully");
           }
         })
       }

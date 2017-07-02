@@ -13,6 +13,7 @@
     <ion-datetime  [(ngModel)]="timeStarts"></ion-datetime>
   </ion-item>
   <button ion-button *ngIf="teamleader" (click)="getStatistics()" >Get Statistics</button>
+  <button ion-button (click)="getReportPdfData()">Get Report</button>
   <div style="display: block" *ngIf="teamleader">
     {{message}}
     <canvas baseChart
