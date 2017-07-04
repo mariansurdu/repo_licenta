@@ -53,7 +53,13 @@ float readTempInCelsius(int count, int pin) {
 
 void loop()
 {  
-Serial.println(analogRead(sensorPin4));
+StaticJsonBuffer<400> jsonBuffer;
+        JsonObject& root = jsonBuffer.createObject();
+         root["gas"]=analogRead(A0);
+         root["methan"]=analogRead(A1);
+         root["temperature"]=analogRead(A2);
+         delay(3000);
+        root.prettyPrintTo(Serial);
   }
 
 

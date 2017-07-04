@@ -172,7 +172,7 @@ export class MyApp {
 
       console.log("device token ->", data.registrationId);
       this.localStorageService.add("tempToken",data.registrationId);
-      alert(data.registrationId+this.loggedIn);
+     //s alert(data.registrationId+this.loggedIn);
       if (this.loggedIn) {
        // alert("User-ul este logat si update token");
         this.appService.updateToken({userId: JSON.parse(this.loggedUser)._id, token: data.registrationId}).subscribe((res)=> {

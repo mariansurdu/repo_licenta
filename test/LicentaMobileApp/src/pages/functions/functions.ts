@@ -101,10 +101,10 @@ export class Functions {
 
   writeDataToSerial() {
     BluetoothSerial.write("a").then((response)=>{
-      alert(JSON.stringify(response));
+    //  alert(JSON.stringify(response));
     })
     BluetoothSerial.write("a").then((response)=>{
-      alert(JSON.stringify(response));
+     // alert(JSON.stringify(response));
     })
   }
 
@@ -136,10 +136,10 @@ export class Functions {
   readDataFromSerial() {
     this.test="aaa";
     BluetoothSerial.write("g").then((response)=> {
-      alert('x');
+    //  alert('x');
         setTimeout(() => {
           BluetoothSerial.read().then((response)=> {
-           alert('y'+response)
+       //    alert('y'+response)
             this.data=JSON.parse(response);
 
             this.gas=this.data.gas;
@@ -177,9 +177,9 @@ export class Functions {
               {data: this.arrayCO2, label: 'CO2'},
               {data: this.arrayAirQuality, label: 'Air quality'}
             ];
-            alert(this.gas);
+         //   alert(this.gas);
             this.functionsService.saveData([this.data,JSON.parse(this.loggedUser)]).subscribe((res)=>{
-              alert(res);
+          //    alert(res);
             })
              })
         }, 3000)
@@ -203,7 +203,7 @@ export class Functions {
 
   connectToDevice(id:any):void {
     this.onConnect=true;
-    alert(id);
+   // alert(id);
     BluetoothSerial.connect(id).subscribe((res)=>{
       this.connected=true;
       this.onConnect=false;

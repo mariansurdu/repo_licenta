@@ -14,7 +14,7 @@ export class Company {
   data:any;
   message:String;
   constructor(public navCtrl: NavController,public companyService:CompanyService) {
-      alert("this")
+  //    alert("this")
   }
 
   createCompany() {

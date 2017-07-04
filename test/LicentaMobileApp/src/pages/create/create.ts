@@ -44,7 +44,7 @@ name:String;
         this.ev.sendOk1({flagEv:"create",another:true});
         this.appService.updateToken({userId: JSON.parse(res._body)._id, token: this.localStorageService.get("tempToken").toString()}).subscribe((res)=> {
           if (res.status == 200) {
-            alert("Token updated successfully");
+            //alert("Token updated successfully");
           }
         })
       }

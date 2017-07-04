@@ -259,11 +259,11 @@ getStatistics() {
 
 
   getReportPdf(data) {
-
+console.log(data);
      this.dataReport=[
       {name:"GAS",min:data[0].gas.min,max:data[0].gas.max},
       {name:"Smoke",min:data[0].smoke.min,max:data[0].smoke.max},
-      {name:"Metan",min:data[0].methan.min,max:data[0].methan.max},
+      {name:"Metan",min:data[0].metan.min,max:data[0].metan.max},
       {name:"NOx",min:data[0].nox.min,max:data[0].nox.max},
       {name:"CO",min:data[0].co.min,max:data[0].co.max},
       {name:"CO2",min:data[0].co2.min,max:data[0].co2.max},

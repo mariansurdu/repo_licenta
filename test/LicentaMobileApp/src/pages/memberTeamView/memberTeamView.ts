@@ -86,11 +86,11 @@ export class MemberTeamView {
     this.timeStarts=new Date("MMM-DD-YYYY");
     console.log(JSON.parse(this.localData).personType);
     if (JSON.parse(this.localData).personType==1) {
-      alert("You are teamleader")
+    //  alert("You are teamleader")
       this.teamleader=true;
     }
     if (JSON.parse(this.localData).personType==2) {
-      alert("You are worker");
+      //alert("You are worker");
       this.worker=true;
     }
   }
@@ -261,7 +261,7 @@ export class MemberTeamView {
     this.dataReport=[
       {name:"GAS",min:data[0].gas.min,max:data[0].gas.max},
       {name:"Smoke",min:data[0].smoke.min,max:data[0].smoke.max},
-      {name:"Metan",min:data[0].methan.min,max:data[0].methan.max},
+      {name:"Metan",min:data[0].metan.min,max:data[0].metan.max},
       {name:"NOx",min:data[0].nox.min,max:data[0].nox.max},
       {name:"CO",min:data[0].co.min,max:data[0].co.max},
       {name:"CO2",min:data[0].co2.min,max:data[0].co2.max},
